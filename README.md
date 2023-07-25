@@ -4,17 +4,15 @@ This markdown document will cover all aspects of the bioinformatics
 practical related to the 2022 VTK Advanced Technologies for the Life Sciences.
 
 # Introduction
-In this practical we will process 2 RNA sequencing (RNA-seq) datasets
-to generate a selection of the analytical results presented in the two
-papers associated with the datasets. One of the datasets is a bulk-RNA
-dataset while the other is a single cell RNA (scRNA-seq) dataset.
+In this practical we will process bulk-RNA sequencing (RNA-seq) dataset
+to generate a selection of the analytical results presented in the paper associated with the dataset. single cell RNA (scRNA-seq) is another RNA sequencing approach which will not demonstrated in this practice
 
 [What is bulk RNA-seq?](https://www.scdiscoveries.com/support/what-is-bulk-rna-sequencing/)
 
 [What is single cell RNA-seq?](https://en.wikipedia.org/wiki/Single-cell_transcriptomics)
 
 ## The papers
-These are the two papers we will be working with:
+These are the two papers, we will be working with the first one only while the second one is for your further reading:
 
 - Bulk RNA-seq: [Böstrom et al 2017](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188772). Comparative cell cycle
 transcriptomics reveals synchronization of developmental
@@ -29,7 +27,7 @@ It would be a good idea to make yourself familiar with the papers before startin
 ## Location
 The practical will take place in room M739 from 09.00-16.30 on the 6-8th of December. It is currently unclear whether we will have access to the room on the 9th of December as well.
 
-Ben Hume, the current SequAna bioinformatician will
+Abdoallah aka "Abdo", the current SequAna bioinformatician will
 be running the practical and will be there to assist you.
 
 ## Computing setup
@@ -41,18 +39,17 @@ deleted after every session and it is not possible to install
 applications that use Graphical User Interfaces (GUI).
 
 As such, it is strongly recommended that you bring a laptop with
-you to complete the practical. There will be 1 spare laptop
-available for use during the practical session in M739, but this
-laptop cannot leave the room as it belongs to SequAna.
+you to complete the practical. 
+
 
 # Objectives
 
-The main objective of this practical is to give you an introduction to the tools that are used by computational biologist/bioinformaticians to generate meaningful results from sequencing data.
+The main objective of this practical is to introduce you to the tools used by computational biologists/bioinformaticians to generate meaningful results from sequencing data.
 
-The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 3 or 4 days!), nor to perfectly recreate the figures from the manuscripts. The important part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
+The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 3 or 4 days!), nor to perfectly recreate the figures from the manuscript. The important part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
 will likely be extremely valuable to you in your career as a research scientist.
 
-To achieve this objective we will work with the sequencing data archived as part of the above mentioned studies to recapitulate several of their key findings.
+To achieve this objective we will work with the sequencing data archived as part of the above-mentioned study to recapitulate several of their key findings.
 
 In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
 
@@ -60,7 +57,7 @@ In doing so we will cover many broad informatic/bioinformatic techniques not lim
 - Using Conda environments to install programs and packages
 - Working with Docker images in Singularity
 - Working with core bioinformatic tools to perform:
-    - access of archived sequencing data
+    - access to archived sequencing data
     - sequencing pre-processing and quality control
     - sequence analysis
 - Workflow management with Nextflow
@@ -69,15 +66,15 @@ In doing so we will cover many broad informatic/bioinformatic techniques not lim
 I will provide resources for all topics we cover and you are encouraged to look at these
 resources if you wish to further your knowledge of the topic.
 
-If you find yourself ahead of the rest of the group, feel free to work on whatever you like or take the time to looking the topics we've covered so far in more detail.
+If you find yourself ahead of the rest of the group, you can just work on whatever you like or take the time to look over the topics we've covered so far in more detail.
 
 # Structure of the practical
 The practical will be divided up by days (1-3). We'll hold the 4th day spare and see how we're getting on. We can be flexible with how or if we use the 4th day.
 
-Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would rather we take our time on the journey that reach the final figures.
+Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would rather we take our time on the journey that reaches the final figures.
 
-One of the most important skills in computation biology / informatics is the effective
-sourcing of reference material. I.e. good googleing!
+One of the most important skills in computation biology/informatics is the effective
+sourcing of reference material. I.e. good googling!
 
 As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
@@ -123,10 +120,10 @@ What are ssh-keys?(https://jumpcloud.com/blog/what-are-ssh-keys)
 
 > **Exercise:** Generate a pair of ssh-keys. Send the public key to Ben for installation on the server along with your username. N.B. if working on Windows, try to use the Open SSH Client on the command line with the command: `ssh-keygen`. For both Windows and mac, the key should be saved to the default location which should be a hidden folder called `.ssh` inside your user's base directory.
 
-> **Exercise:** ssh into the sequana server once Ben has installed your SSH keys. Ask Ben for sequana's IP. (optional) [set up](https://linuxize.com/post/using-the-ssh-config-file/) a 'config' file in '.ssh' so that you don't have to enter your IP and username every time you want to 
+> **Exercise:** ssh into the SequAna server once Ben has installed your SSH keys. Ask Ben for SequAna's IP. (optional) [set up](https://linuxize.com/post/using-the-ssh-config-file/) a 'config' file in '.ssh' so that you don't have to enter your IP and username every time you want to 
 
 ## Part 2: Installing software in your user directory
-We'll need some programmes if we're going to do some work.
+We'll need some programs if we're going to do some work.
 
 One way to install programs on a Linux system is at the system level.
 
