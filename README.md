@@ -43,10 +43,10 @@ This practice requires a command line interface (CLI). If your laptop is operate
 
 https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
 
-If you face some errors during installation, here is some troubleshooting tips:
+If you face some errors during installation, here are some troubleshooting tips:
 https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/ 
 
-While if your laptop operated by IOS or Linux, then you don't worry about CLI because it's already implemnted.
+While if your laptop is operated by IOS or Linux, then you don't worry about CLI because it's already implemented.
 
 
 # Objectives
