@@ -39,13 +39,15 @@ applications that use Graphical User Interfaces (GUI).
 
 As such, it is strongly recommended that you bring a laptop with
 you to complete the practical. 
-This practice requires command line interface (CLI). If your laptop is opterated by Windows, then  
+This practice requires a command line interface (CLI). If your laptop is operated by Windows, then it's necessary to install Windows Subsystem for Linux (WSL) according to the following tutorial:
 
+https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
 
-you don't worry
+If you face some errors during installation, here is some troubleshooting tips:
+https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/ 
 
+While if your laptop operated by IOS or Linux, then you don't worry about CLI because it's already implemnted.
 
-Student 
 
 # Objectives
 
