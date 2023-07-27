@@ -39,7 +39,13 @@ applications that use Graphical User Interfaces (GUI).
 
 As such, it is strongly recommended that you bring a laptop with
 you to complete the practical. 
+This practice requires command line interface (CLI). If your laptop is opterated by Windows, then  
 
+
+you don't worry
+
+
+Student 
 
 # Objectives
 
