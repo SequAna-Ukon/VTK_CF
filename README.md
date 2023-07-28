@@ -39,15 +39,6 @@ applications that use Graphical User Interfaces (GUI).
 
 As such, it is strongly recommended that you bring a laptop with
 you to complete the practical. 
-This practice requires a command line interface (CLI). If your laptop is operated by Windows, then it's necessary to install Windows Subsystem for Linux (WSL) according to the following tutorial:
-
-https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
-
-If you face some errors during installation, here are some troubleshooting tips:
-https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/ 
-
-While if your laptop is operated by IOS or Linux, then you don't worry about CLI because it's already implemented.
-
 
 # Objectives
 
@@ -61,14 +52,14 @@ To achieve this objective we will work with the sequencing data archived as part
 In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
 
 - Working on the command line interface (CLI)
-- Using Conda environments to install programs and packages
-- Working with Docker images in Singularity
 - Working with core bioinformatic tools to perform:
     - access to archived sequencing data
     - sequencing pre-processing and quality control
     - sequence analysis
-- Workflow management with Nextflow
 - R scripting to manipulate, analyze and visualize data
+- Using Conda environments to install programs and packages
+- Working with Docker images in Singularity
+- Workflow management with Nextflow
 
 I will provide resources for all topics we cover and you are encouraged to look at these
 resources if you wish to further your knowledge of the topic.
@@ -96,8 +87,11 @@ You should already be familiar with working in bash on the command line.
 See [here](https://rnabio.org/module-00-setup/0000/08/01/Unix/
 ) for an excellent resource.
 
-If you don't yet have access to a unix-based operating system you can
-use [this](https://cocalc.com/projects?anonymous=terminal).
+If you don't yet have access to a unix-based operating system i.e Windows, you can install Windows Subsystem for Linux (WSL) according to the [THIS](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
+) tutorial. If you face some errors during installation, [HERE](https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/) are some troubleshooting tips. Another nice alternative is [Visual Studio Code](https://code.visualstudio.com/). 
+
+we Git 
+
 
 ## Part 1: Connecting to SequAna's computational server: sequana
 We will perform much of our analyses on SequAna's
