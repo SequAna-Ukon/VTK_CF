@@ -87,7 +87,10 @@ You should already be familiar with working in bash on the command line.
 See [here](https://rnabio.org/module-00-setup/0000/08/01/Unix/
 ) for an excellent resource.
 
+If you don't yet have access to a unix-based operating system i.e Windows, you can install Windows Subsystem for Linux (WSL) according to the [THIS](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
+) tutorial. If you face some errors during installation, [HERE](https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/) are some troubleshooting tips. Another nice alternative is [Visual Studio Code](https://code.visualstudio.com/). 
 
+we Git 
 
 
 ## Part 1: Connecting to SequAna's computational server: sequana
