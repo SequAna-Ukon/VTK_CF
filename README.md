@@ -84,18 +84,17 @@ If there are any requirements for the day's exercises these will be listed at th
 
 ## Requirements
 You should already be familiar with working in bash on the command line.
-See [here](https://rnabio.org/module-00-setup/0000/08/01/Unix/
-) for an excellent resource.
+See [here](https://rnabio.org/module-00-setup/0000/08/01/Unix/) for an excellent resource.
 
 If you don't yet have access to a unix-based operating system i.e Windows, you can install Windows Subsystem for Linux (WSL) according to the [THIS](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
 ) tutorial. If you face some errors during installation, [HERE](https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/) are some troubleshooting tips. Another nice alternative is [Visual Studio Code](https://code.visualstudio.com/). 
 
-we Git 
+we will use Gitpod for the  first-day practice based on this GitHub, you can start Gitpod using:
+````bash
+gitpod.io/#https://github.com/SequAna-Ukon/VTK2023/
+````
 
-
-## Part 1: Connecting to SequAna's computational server: sequana
-We will perform much of our analyses on SequAna's
-computational server that is creatively named 'sequana'.
+## Part 1:
 
 The server runs a Linux distribution: Ubuntu.
 
@@ -110,6 +109,14 @@ although many can also be run in Windows or on Mac OS X.
 
 Max OS X is Unix-based and therefore has many similarities to Linux distributions.
 The terminal app on Mac OS X offers the user a command line interface (CLI; terminal) very similar to that of Linux distributions.
+
+
+try the command [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting
+
+## Part 1: Connecting to SequAna's computational server: sequana
+We will perform much of our analyses on SequAna's
+computational server that is creatively named 'sequana'.
+
 
 To connect to sequana we will use ssh.
 
