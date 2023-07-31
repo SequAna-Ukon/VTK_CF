@@ -1,0 +1,4 @@
+- present directory
+````bash
+ pwd
+````
