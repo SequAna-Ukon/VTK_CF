@@ -110,10 +110,8 @@ although many can also be run in Windows or on Mac OS X.
 Max OS X is Unix-based and therefore has many similarities to Linux distributions.
 The terminal app on Mac OS X offers the user a command line interface (CLI; terminal) very similar to that of Linux distributions.
 
-
-Play with the commands [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting.
-
-> **Exercise:** Try to figure out the use of each bash command in the given example.
+> **Exercise:** Play with the commands [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting.
+Try to figure out the use of each bash command in the given example.
  
 
 ## Part 2: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
@@ -126,9 +124,8 @@ There are a few key formats that you should be familiar with in the realms of co
 
 [What are sam and bam files?](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files#:~:text=SAM%20files%20are%20a%20type,the%20examples%20for%20this%20section.)
 
-That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
 
-## Part 1: Connecting to SequAna's computational server: sequana
+## Part 3: Connecting to SequAna's computational server: sequana
 We will perform much of our analyses on SequAna's
 computational server that is creatively named 'sequana'.
 
@@ -144,6 +141,13 @@ What are ssh-keys?(https://jumpcloud.com/blog/what-are-ssh-keys)
 > **Exercise:** Generate a pair of ssh-keys. Send the public key to Ben for installation on the server along with your username. N.B. if working on Windows, try to use the Open SSH Client on the command line with the command: `ssh-keygen`. For both Windows and mac, the key should be saved to the default location which should be a hidden folder called `.ssh` inside your user's base directory.
 
 > **Exercise:** ssh into the SequAna server once Ben has installed your SSH keys. Ask Ben for SequAna's IP. (optional) [set up](https://linuxize.com/post/using-the-ssh-config-file/) a 'config' file in '.ssh' so that you don't have to enter your IP and username every time you want to 
+
+
+
+
+That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
+
+
 
 Install R on your system or on the sequana server and install BiocManager
 
@@ -164,6 +168,9 @@ Install some of the packages we will be using:
 - vsn
 - matrixStats
 
+# DAY 2: Böstrom et al 2017
+
+## Requirements
 
 ## Part 2: Installing software in your user directory
 We'll need some programs if we're going to do some work.
@@ -212,9 +219,7 @@ We will use this environment later on.
 
 
 
-# DAY 2: Böstrom et al 2017
 
-## Requirements
 
 
 ## Part 3: Fetching data, directory permissions and working with symlinks
@@ -364,7 +369,7 @@ The DESeq2 documentation is fantastic and I would suggest you open it up now and
 
 > **Exercise**: Have a think about how we create a heat map like the one they're produced in the paper. Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reporduce the findings?
 
-Day 3
+## Day 3
 ## part 6: Nextflow!
 Let's be honest, running fastp once on each of the samples is super annoying. I guess we could generate a bash script to do it for us, but that would be pretty complicated and it would likely run in parallel, and we'd still have to manually take care of the directory structures for the results, and keep track of which versions of the software we used etc. etc. etc. And this was just for one bioinformatic tool! A typical pipeline may have upwards of 10 tools used in sequence, with the outputs combined in certain ways.
 
