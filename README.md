@@ -52,13 +52,13 @@ To achieve this objective we will work with the sequencing data archived as part
 In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
 
 - Working on the command line interface (CLI)
+- Using Conda environments to install programs and packages
+- Working with Docker images in Singularity
 - Working with core bioinformatic tools to perform:
-    - access to archived sequencing data
+    - access of archived sequencing data
     - sequencing pre-processing and quality control
     - sequence analysis
 - R scripting to manipulate, analyze and visualize data
-- Using Conda environments to install programs and packages
-- Working with Docker images in Singularity
 - Workflow management with Nextflow
 
 I will provide resources for all topics we cover and you are encouraged to look at these
