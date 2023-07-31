@@ -55,7 +55,7 @@ In doing so we will cover many broad informatic/bioinformatic techniques not lim
 - Using Conda environments to install programs and packages
 - Working with Docker images in Singularity
 - Working with core bioinformatic tools to perform:
-    - access of archived sequencing data
+    - access to archived sequencing data
     - sequencing pre-processing and quality control
     - sequence analysis
 - R scripting to manipulate, analyze and visualize data
@@ -69,9 +69,9 @@ If you find yourself ahead of the rest of the group, you can just work on whatev
 # Structure of the practical
 The practical will be divided up by days (1-3). We'll hold the 4th day spare and see how we're getting on. We can be flexible with how or if we use the 4th day.
 
-Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would rather we take our time on the journey that reaches the final figures.
+Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead we take our time on the journey that reaches the final figures.
 
-One of the most important skills in computation biology/informatics is the effective
+One of the most essential skills in computation biology/informatics is the effective
 sourcing of reference material. I.e. good googling!
 
 As such throughout the 3/4 days, while you will be given a structure to follow,
@@ -80,7 +80,7 @@ But don't worry, the SequAna bioinformatician will be there to help you when you
 
 If there are any requirements for the day's exercises these will be listed at the beginning of each day's section in a 'requirements' section. For example, some packages take a long time to install so it's best to do this setup in advance.
 
-# DAY 1: Installing programs bash scripting intero.
+# DAY 1: Installing programs bash scripting introduction
 
 ## Requirements
 You should already be familiar with working in bash on the command line.
@@ -94,9 +94,9 @@ we will use Gitpod for the  first-day practice based on this GitHub, you can sta
 gitpod.io/#https://github.com/SequAna-Ukon/VTK2023/
 ````
 
-## Part 1:
+## Part 1: bash scripting introduction
 
-The server runs a Linux distribution: Ubuntu.
+Most of the Bioinformatician and computational servers run a Linux distribution: Ubuntu.
 
 [What is an operating system?](https://en.wikipedia.org/wiki/Operating_system)
 
@@ -111,7 +111,22 @@ Max OS X is Unix-based and therefore has many similarities to Linux distribution
 The terminal app on Mac OS X offers the user a command line interface (CLI; terminal) very similar to that of Linux distributions.
 
 
-try the command [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting
+Play with the commands [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting.
+
+> **Exercise:** Try to figure out the use of each bash command in the given example.
+ 
+
+## Part 2: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
+
+There are a few key formats that you should be familiar with in the realms of computational biology.
+
+[What is a fasta file?](https://en.wikipedia.org/wiki/FASTA_format)
+
+[What is a fastq file?](https://en.wikipedia.org/wiki/FASTQ_format)
+
+[What are sam and bam files?](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files#:~:text=SAM%20files%20are%20a%20type,the%20examples%20for%20this%20section.)
+
+That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
 
 ## Part 1: Connecting to SequAna's computational server: sequana
 We will perform much of our analyses on SequAna's
@@ -194,17 +209,6 @@ Great! We now have the ability to create environments and install programs local
 
 We will use this environment later on.
 
-## Part 4: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
-
-There are a few key formats that you should be familiar with in the realms of computational biology.
-
-[What is a fasta file?](https://en.wikipedia.org/wiki/FASTA_format)
-
-[What is a fastq file?](https://en.wikipedia.org/wiki/FASTQ_format)
-
-[What are sam and bam files?](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files#:~:text=SAM%20files%20are%20a%20type,the%20examples%20for%20this%20section.)
-
-That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
 
 
 
@@ -261,14 +265,7 @@ I've worked with each of these over the years. For ease of use and speed, I like
 
 > **Exercise**: Install fastp and run it on each of the samples. Set the quality threshold to 20. Think about where the outputs from running fastp will go.
 
-## part 6: Nextflow!
-Let's be honest, running fastp once on each of the samples is super annoying. I guess we could generate a bash script to do it for us, but that would be pretty complicated and it would likely run in parallel, and we'd still have to manually take care of the directory structures for the results, and keep track of which versions of the software we used etc. etc. etc. And this was just for one bioinformatic tool! A typical pipeline may have upwards of 10 tools used in sequence, with the outputs combined in certain ways.
 
-What if I told you there was a better way?!
-
-There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html).
-
-> **Exercise**: With Ben's help, write a Nextflow script that will do what we've just done. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
 
 ## Part 7: Getting files in and out of the server
 Obviously, there will be many occasions where you want to either load files on to the server, or take files off of their server.
@@ -366,3 +363,13 @@ Now it's time for us to create the DESeq2 object and perform the analysis.
 The DESeq2 documentation is fantastic and I would suggest you open it up now and follow along. To create the first figure from the paper we'll be using some of the standard approaches in this document. OR WILL WE!
 
 > **Exercise**: Have a think about how we create a heat map like the one they're produced in the paper. Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reporduce the findings?
+
+Day 3
+## part 6: Nextflow!
+Let's be honest, running fastp once on each of the samples is super annoying. I guess we could generate a bash script to do it for us, but that would be pretty complicated and it would likely run in parallel, and we'd still have to manually take care of the directory structures for the results, and keep track of which versions of the software we used etc. etc. etc. And this was just for one bioinformatic tool! A typical pipeline may have upwards of 10 tools used in sequence, with the outputs combined in certain ways.
+
+What if I told you there was a better way?!
+
+There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html).
+
+> **Exercise**: With Ben's help, write a Nextflow script that will do what we've just done. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
