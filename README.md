@@ -78,9 +78,9 @@ As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
 But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's totally normal.
 
-If there are any requirements for the day's exercises these will be listed at the beginning of each day's section in a 'requirements' section. For example some packages take a long time to install so it's best to do this setup in advance.
+If there are any requirements for the day's exercises these will be listed at the beginning of each day's section in a 'requirements' section. For example, some packages take a long time to install so it's best to do this setup in advance.
 
-# DAY 1: Installing programs and fetching data
+# DAY 1: Installing programs bash scripting intero.
 
 ## Requirements
 You should already be familiar with working in bash on the command line.
@@ -122,6 +122,26 @@ What are ssh-keys?(https://jumpcloud.com/blog/what-are-ssh-keys)
 > **Exercise:** Generate a pair of ssh-keys. Send the public key to Ben for installation on the server along with your username. N.B. if working on Windows, try to use the Open SSH Client on the command line with the command: `ssh-keygen`. For both Windows and mac, the key should be saved to the default location which should be a hidden folder called `.ssh` inside your user's base directory.
 
 > **Exercise:** ssh into the SequAna server once Ben has installed your SSH keys. Ask Ben for SequAna's IP. (optional) [set up](https://linuxize.com/post/using-the-ssh-config-file/) a 'config' file in '.ssh' so that you don't have to enter your IP and username every time you want to 
+
+Install R on your system or on the sequana server and install BiocManager
+
+```
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+```
+
+Install some of the packages we will be using:
+- dplyr
+- tidyverse
+- GenomicFeatures
+- RMariaDB
+- stringr
+- tximport
+- DESeq2
+- pheatmap
+- vsn
+- matrixStats
+
 
 ## Part 2: Installing software in your user directory
 We'll need some programs if we're going to do some work.
@@ -166,6 +186,26 @@ Great! We now have the ability to create environments and install programs local
 > Verify that you can run kallisto
 
 We will use this environment later on.
+
+## Part 4: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
+
+There are a few key formats that you should be familiar with in the realms of computational biology.
+
+[What is a fasta file?](https://en.wikipedia.org/wiki/FASTA_format)
+
+[What is a fastq file?](https://en.wikipedia.org/wiki/FASTQ_format)
+
+[What are sam and bam files?](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files#:~:text=SAM%20files%20are%20a%20type,the%20examples%20for%20this%20section.)
+
+That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
+
+
+
+# DAY 2: Böstrom et al 2017
+
+## Requirements
+
+
 ## Part 3: Fetching data, directory permissions and working with symlinks
 Now it's time to get some data.
 
@@ -189,39 +229,9 @@ Now you know where the data is, you can either work directly with that data, or 
 
 > **Exercise**: Create a directory structure in your home directory to hold the data. Create symlinks to populate the directories with symlinks to the sequencing files.
 
-## Part 4: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
 
-There are a few key formats that you should be familiar with in the realms of computational biology.
 
-[What is a fasta file?](https://en.wikipedia.org/wiki/FASTA_format)
 
-[What is a fastq file?](https://en.wikipedia.org/wiki/FASTQ_format)
-
-[What are sam and bam files?](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files#:~:text=SAM%20files%20are%20a%20type,the%20examples%20for%20this%20section.)
-
-That brings us to the end of the 'first day'. How long did it take us? Hopefully we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
-
-# DAY 2: Böstrom et al 2017
-
-## Requirements
-Install R on your system or on the sequana server and install BiocManager
-
-```
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-```
-
-Install some of the packages we will be using:
-- dplyr
-- tidyverse
-- GenomicFeatures
-- RMariaDB
-- stringr
-- tximport
-- DESeq2
-- pheatmap
-- vsn
-- matrixStats
 
 ## Part 5: preprocessing:
 For Boström there is a single fastq file per sample.
