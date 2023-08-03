@@ -142,6 +142,27 @@ What are ssh-keys?(https://jumpcloud.com/blog/what-are-ssh-keys)
 
 > **Exercise:** ssh into the SequAna server once Ben has installed your SSH keys. Ask Abdo for SequAna's IP. (optional) [set up](https://linuxize.com/post/using-the-ssh-config-file/) a 'config' file in '.ssh' so that you don't have to enter your IP and username every time you want to 
 
+````bash
+ssh [sequana]
+````
+> **Exercise:** Based on your CL training, create a directory with your name on the sequana (VTK23) home directory.
+
+
+
+## Part 4: Getting files in and out of the server
+Obviously, there will be many occasions where you want to either load files onto the server or take files off of their server.
+
+We will cover that now.
+
+The most common way to do this is using [scp](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/) (secure copy).
+
+````bash
+scp [file] sequana:
+scp sequana:[file] ./
+````
+
+> **Exercise**: create upload Pull down the html file to inspect it.
+
 
 
 That brings us to the end of the 'first day'. How long did it take us? Hopefully, we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
@@ -271,14 +292,6 @@ I've worked with each of these over the years. For ease of use and speed, I like
 
 
 
-## Part 7: Getting files in and out of the server
-Obviously, there will be many occasions where you want to either load files on to the server, or take files off of their server.
-
-We will cover that now.
-
-The most common way to do this is using [scp](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/) (secure copy).
-
-> **Exercise**: Inspect the output of fastp. Pull down the html file to inspect it.
 ## Part 8: preparing the reference
 
 > **Exercise**: Discuss: What do you think is the next step after pre-processing? It's important to have a good overview of what you are trying to achieve and how.
