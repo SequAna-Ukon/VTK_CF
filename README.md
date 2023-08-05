@@ -158,7 +158,7 @@ scp [file] sequana:
 scp sequana:[file] ./
 ````
 
-> **Exercise**: Try to upload [this](https://github.com/SequAna-Ukon/VTK2023/blob/main/CL_VTK_data/1kP_Sample_List.csv) file to your directory on sequana and Pull it down.
+> **Exercise**: Try to upload [this](https://github.com/SequAna-Ukon/VTK2023/blob/main/CL_VTK_data/1kP_Sample_List.csv) file to your directory on sequana and pull it down.
 
 
 
