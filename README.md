@@ -3,12 +3,12 @@ This markdown document will cover all aspects of the bioinformatics
 practical related to the 2022 VTK Advanced Technologies for the Life Sciences.
 
 # Introduction
-In this practical we will process bulk-RNA sequencing (RNA-seq) dataset
-to generate a selection of the analytical results presented in the paper associated with the dataset. single cell RNA (scRNA-seq) is another RNA sequencing approach which will not demonstrated in this practice
+In this practical, we will process a bulk-RNA sequencing (RNA-seq) dataset
+to generate a selection of the analytical results presented in the paper associated with the dataset. single cell RNA (scRNA-seq) is another RNA sequencing approach that will not be demonstrated in this practice
 
 [What is bulk RNA-seq?](https://www.scdiscoveries.com/support/what-is-bulk-rna-sequencing/)
 
-[What is single cell RNA-seq?](https://en.wikipedia.org/wiki/Single-cell_transcriptomics)
+[What is single-cell RNA-seq?](https://en.wikipedia.org/wiki/Single-cell_transcriptomics)
 
 ## The papers
 These are the two papers, we will be working with the first one only while the second one is for your further reading:
@@ -21,17 +21,15 @@ transcription factor networks in cancer cells. PLOS ONE.
 
 Both papers have been uploaded to the ILLIAS system in `Publications/SequAna`
 
-It would be a good idea to make yourself familiar with the papers before starting the practical work.
+It would be a good idea to familiarize yourself with the papers before starting the practical work.
 
 ## Location
-The practical will take place in room M739 from 09.00-16.30 on the 6-8th of December. It is currently unclear whether we will have access to the room on the 9th of December as well.
+The practical will take place in room M739 from 09.00-16.30 on the 6-8th of December. It is currently unclear whether we will also have access to the room on the 9th of December.
 
-Abdoallah aka "Abdo", the current SequAna bioinformatician will
-be running the practical and will be there to assist you.
+Abdoallah aka "Abdo", the current SequAna bioinformatician will be running the practical and will be there to assist you.
 
 ## Computing setup
-You will need access to a computer to complete this practical.
-While M739 does contain computers that you could use to login to the
+You'll need access to a computer to finish this practical. While M739 does contain computers that you could use to login to the
 SequAna computational server (where much of the work will occur)
 this is a very inconvenient way to work as your home directory is
 deleted after every session and it is not possible to install
@@ -44,10 +42,10 @@ you to complete the practical.
 
 The main objective of this practical is to introduce you to the tools used by computational biologists/bioinformaticians to generate meaningful results from sequencing data.
 
-The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 3 or 4 days!), nor to perfectly recreate the figures from the manuscript. The important part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
+The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 3 or 4 days!), nor to perfectly recreate the figures from the manuscript. The critical part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
 will likely be extremely valuable to you in your career as a research scientist.
 
-To achieve this objective we will work with the sequencing data archived as part of the above-mentioned study to recapitulate several of their key findings.
+To achieve this objective we will work with the sequencing data archived as part of the study mentioned above to recapitulate several of their key findings.
 
 In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
 
@@ -86,10 +84,10 @@ If there are any requirements for the day's exercises these will be listed at th
 You should already be familiar with working in bash on the command line.
 See [here](https://rnabio.org/module-00-setup/0000/08/01/Unix/) for an excellent resource.
 
-If you don't yet have access to a unix-based operating system i.e Windows, you can install Windows Subsystem for Linux (WSL) according to the [THIS](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
+If you don't yet have access to a Unix-based operating system i.e Windows, you can install Windows Subsystem for Linux (WSL) according to the [THIS](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview 
 ) tutorial. If you face some errors during installation, [HERE](https://appuals.com/wsl-register-distribution-error-0x80370102-on-windows-10/) are some troubleshooting tips. Another nice alternative is [Visual Studio Code](https://code.visualstudio.com/). 
 
-we will use Gitpod for the  first-day practice based on this GitHub, you can start Gitpod using:
+We will use Gitpod for the  first-day practice based on this GitHub, you can start Gitpod using:
 ````bash
 gitpod.io/#https://github.com/SequAna-Ukon/VTK2023/
 ````
@@ -104,10 +102,9 @@ Most of the Bioinformatician and computational servers run a Linux distribution:
 
 [What is Linux?](https://www.linux.com/what-is-linux/)
 
-The vast majority of bioinformatic programs run in Linux,
-although many can also be run in Windows or on Mac OS X.
+The vast majority of bioinformatic programs run on Linux, although many can also be run on Windows or on Mac OS X.
 
-Max OS X is Unix-based and therefore has many similarities to Linux distributions.
+Mac OS X is Unix-based and therefore has many similarities to Linux distributions.
 The terminal app on Mac OS X offers the user a command line interface (CLI; terminal) very similar to that of Linux distributions.
 
 > **Exercise:** Play with the commands [HERE](https://github.com/SequAna-Ukon/VTK2023/blob/main/Practice%20on%20basic%20shell%20scripting.md) to get familiar with bash scripting.
@@ -116,7 +113,7 @@ Try to figure out the use of each bash command in the given example.
 
 ## Part 2: Some key sequence data formats - fasta, fastq, fastq.gz, sam and bam
 
-There are a few key formats that you should be familiar with in the realms of computational biology.
+There are a few key formats that you should be familiar with in the realm of computational biology.
 
 [What is a fasta file?](https://en.wikipedia.org/wiki/FASTA_format)
 
@@ -161,7 +158,7 @@ scp [file] sequana:
 scp sequana:[file] ./
 ````
 
-> **Exercise**: create upload Pull down the html file to inspect it.
+> **Exercise**: Try to upload [this](https://github.com/SequAna-Ukon/VTK2023/blob/main/CL_VTK_data/1kP_Sample_List.csv) file to your directory on sequana and Pull it down.
 
 
 
@@ -169,6 +166,10 @@ That brings us to the end of the 'first day'. How long did it take us? Hopefully
 
 
 
+
+# DAY 2: Böstrom et al 2017
+
+## Requirements
 - Install R on your system or on the sequana server and install BiocManager
 
 ```
@@ -188,11 +189,7 @@ Install some of the packages we will be using:
 - vsn
 - matrixStats
 
-# DAY 2: Böstrom et al 2017
-
-## Requirements
-
-## Part 2: Installing software in your user directory
+## Part 5: Installing software in your user directory
 We'll need some programs if we're going to do some work.
 
 One way to install programs on a Linux system is at the system level.
