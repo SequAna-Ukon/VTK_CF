@@ -253,13 +253,7 @@ Great! We now have the ability to create environments and install programs local
 
 We will use this environment later on.
 
-
-
-
-
-
-
-## Part 3: Fetching data, directory permissions and working with symlinks
+## Part 6: Fetching data, directory permissions and working with symlinks
 Now it's time to get some data.
 
 > **Exercise:** Find where the data from each of the studies is deposited. Use the ENA File Downloader that you installed earlier to download data from ONE of the samples from the Böstrom et al 2017 paper.
@@ -283,10 +277,7 @@ Now you know where the data is, you can either work directly with that data, or 
 > **Exercise**: Create a directory structure in your home directory to hold the data. Create symlinks to populate the directories with symlinks to the sequencing files.
 
 
-
-
-
-## Part 5: preprocessing:
+## Part 7: preprocessing:
 For Boström there is a single fastq file per sample.
 
 > **Exercise**: Open up the fastq file and have a look at it. Can you deduce the structure of the fastq format from this file? What is the /1 at the end of the reads? How about those quality scores, what use will we make of them?
@@ -399,7 +390,7 @@ The DESeq2 documentation is fantastic and I would suggest you open it up now and
 > **Exercise**: Have a think about how we create a heat map like the one they're produced in the paper. Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reporduce the findings?
 
 ## Day 3
-## part 6: Nextflow!
+## part 11: Nextflow!
 Let's be honest, running fastp once on each of the samples is super annoying. I guess we could generate a bash script to do it for us, but that would be pretty complicated and it would likely run in parallel, and we'd still have to manually take care of the directory structures for the results, and keep track of which versions of the software we used etc. etc. etc. And this was just for one bioinformatic tool! A typical pipeline may have upwards of 10 tools used in sequence, with the outputs combined in certain ways.
 
 What if I told you there was a better way?!
@@ -407,3 +398,5 @@ What if I told you there was a better way?!
 There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html).
 
 > **Exercise**: With Ben's help, write a Nextflow script that will do what we've just done. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
+
+## part 12: nf-core
