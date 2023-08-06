@@ -162,14 +162,25 @@ scp sequana:[file] ./
 
 
 
-That brings us to the end of the 'first day'. How long did it take us? Hopefully, we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Once you have that installed R install some of the packages we will be using tomorrow (see the requirement section). Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
+That brings us to the end of the 'first day'. How long did it take us? Hopefully, we didn't use up the full day because tomorrow we'll be doing some R in the latter half of the day. So for the remainder of today, I'd like you to spend some time getting familiar with R. If we run out of time then you can do it at home. 
+This means getting it installed on your system. Either install [Rstudio](https://posit.co/) or [Visual Studio Code](https://code.visualstudio.com/) (my personal favourite). I'm here to help. Also, Here is a helpful tutorial [document] (https://code.visualstudio.com/docs/languages/r#_workspace-viewer) and [video[ (https://www.youtube.com/watch?v=hOe5eYcQrCw&t=383s). Then, you can test R using some simple coding.  
+
+````bash
+#Create a sequence of values and put it in a variable (x)
+x <- seq(10, length.out=50)
+#Find a range of values
+range(x)
+#Find the minimum value
+min(x)
+#Find the maximum value
+max(x)
+#Find mean value
+mean(x)
+````
+
+Once you have that installed R install some of the packages we will be using tomorrow. Then, if you're not already comfortable with R, or if you're a little rusty, use this time to do a brief R tutorial that covers the basics. R is a fantastic language to get familiar with as a biologist.
 
 
-
-
-# DAY 2: Böstrom et al 2017
-
-## Requirements
 - Install R on your system or on the sequana server and install BiocManager
 
 ```
@@ -188,6 +199,8 @@ Install some of the packages we will be using:
 - pheatmap
 - vsn
 - matrixStats
+
+# DAY 2: Böstrom et al 2017
 
 ## Part 5: Installing software in your user directory
 We'll need some programs if we're going to do some work.
@@ -309,7 +322,7 @@ These can largely be categorized in two:
 
 > **Exercise**: Discuss: Understanding that pseudo aligners generally map to a transcriptome whereas tradition splice-aware mappers such as STAR map to a genome, can you think of a down side to working with a pseudo-aligner?
 
-We're going to go the pseudo-alignment route with [kallisto](https://pachterlab.github.io/kallisto/): it's fast and does exactly what we need. As we're working with Human, there is a well established set of transcripts to map to (the transcriptome).
+We're going to go the pseudo-alignment route with [kallisto](https://pachterlab.github.io/kallisto/): it's fast and does exactly what we need. As we're working with Human, there is a well-established set of transcripts to map to (the transcriptome).
 
 I've downloaded the Ensembl transcriptome (release 107) from [here](https://ftp.ensembl.org/pub/release-107/fasta/homo_sapiens/cdna/). I've downloaded it to here: `/home/VTK/bostrom/reference/`
 
