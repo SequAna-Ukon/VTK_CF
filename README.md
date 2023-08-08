@@ -226,9 +226,9 @@ $ which ls
 
 While this might seem convenient, there are many reasons not to install programs at the system level not limited to:
 - You must have root access to be able to install the programs
-- It is difficult to work with multiple versions of programs (i.e. v0.1.3 vs v0.1.4)
+- It isn't easy to work with multiple versions of programs (i.e. v0.1.3 vs v0.1.4)
 
-There are several ways to overcome the above issues. One is to download the source code for programs or pre-compiled programs and install these in a local directory. While this solves the problem of root access and the program will only be installed for your use, it still doesn't help us with managing multiple version of programs. It can also be difficult to download the source code of some programs and get it to compile correctly often due to dependency issues. However, sometimes downloading a program and installing it yourself is the only option available to you.
+There are several ways to overcome the above issues. One is to download the source code for programs or pre-compiled programs and install these in a local directory. While this solves the problem of root access and the program will only be installed for your use, it still doesn't help us with managing multiple versions of programs. It can also be challenging to download the source code of some programs and get it to compile correctly often due to dependency issues. However, sometimes downloading a program and installing it yourself is the only option available to you.
 
 One of the first tasks we will need to undertake for our analysis is getting the sequencing data associated with the studies.
 
@@ -236,11 +236,11 @@ We will download the data from the [European Nucleotide Archive (ENA)](https://w
 
 We will use their [File Downloader Command Line Tool](https://ena-docs.readthedocs.io/en/latest/retrieval/file-download.html#using-ena-file-downloader-command-line-tool) that is hosted on GitHub [here](https://github.com/enasequence/ena-ftp-downloader/releases).
 
-> **Exercise:** Install the ENA File Downloader in your home directory and make sure you can get it to execute.
+> **Exercise:** Install the ENA File Downloader in your directory and make sure you can get it to execute.
 
 We will work with this program later on to download data. But first, let's meet another option for installing programs: [Conda](https://conda.io/projects/conda/en/latest/index.html) - a package manager that allows you to create multiple environments, often specific to a given project or analysis, that can have different packages and programs installed in them.
 
-See [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) for managing environmens with conda. Conda can be installed in your home directory without root access (sudo access) and enables you to install programs locally.
+See [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) for managing environments with conda. Conda can be installed in your home directory without root access (sudo access) and enables you to install programs locally.
 
 > **Exercise:** Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) in your sequana home directory. If you're not sure which options to select, ask! Once it's installed you'll need to start a new ssh session.
 
@@ -253,7 +253,7 @@ Great! We now have the ability to create environments and install programs local
 
 We will use this environment later on.
 
-## Part 6: Fetching data, directory permissions and working with symlinks
+## Part 6: Fetching data, directory permissions, and working with symlinks
 Now it's time to get some data.
 
 > **Exercise:** Find where the data from each of the studies is deposited. Use the ENA File Downloader that you installed earlier to download data from ONE of the samples from the Böstrom et al 2017 paper.
@@ -266,7 +266,7 @@ And guess what, I've already downloaded the data we need. It's in the following 
 
 > **Exercise:** Go take a look at the data. How big is the data?
 
-One of the great things about operating on a Linux system is that its designed to allow concurrent access by multiple users.
+One of the great things about operating on a Linux system is that it's designed to allow concurrent access by multiple users.
 
 > **Exercise**: Take a look at the permissions for the data directory. What does it tell you about access to the directory? What is a group in Linux? Which groups are you a member of?
 
@@ -274,7 +274,7 @@ Now you know where the data is, you can either work directly with that data, or 
 
 [What is a symbolic link (symlink)?](https://www.futurelearn.com/info/courses/linux-for-bioinformatics/0/steps/201767#:~:text=A%20symlink%20is%20a%20symbolic,directory%20in%20any%20file%20system.)
 
-> **Exercise**: Create a directory structure in your home directory to hold the data. Create symlinks to populate the directories with symlinks to the sequencing files.
+> **Exercise**: Create a directory structure in your directory to hold the data. Create symlinks to populate the directories with symlinks to the sequencing files.
 
 
 ## Part 7: preprocessing:
@@ -282,19 +282,19 @@ For Boström there is a single fastq file per sample.
 
 > **Exercise**: Open up the fastq file and have a look at it. Can you deduce the structure of the fastq format from this file? What is the /1 at the end of the reads? How about those quality scores, what use will we make of them?
 
-It's common practice to remove low quality bases at the beginning and ends of reads and to check for and remove adapters?
+It's common practice to remove low-quality bases at the beginning and ends of reads and to check for and remove adapters?
 
 > **Exercise**: Discuss: Why are there still adapters in my sequences if the sequencing starts after the adapters?
 
-There are a couple of options for removing low quality bases and adapters.
+There are a couple of options for removing low-quality bases and adapters.
 
 > **Exercise**: Have a look at a couple of the options: [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [fastp](https://github.com/OpenGene/fastp) and [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic). Specifically, see if you can resolve any differences between the programs. Is one easier to use than the others? Do they all have the same functionality? Let's say you want to remove adapters and trim for quality score at the beginning and end of the read at a phred score of 20.
 
 [What is a phred score?](https://en.wikipedia.org/wiki/Phred_quality_score)
 
-I've worked with each of these over the years. For ease of use and speed, I like fastp.
+I've worked with each of these over the years. For ease of speed, I like fastp.
 
-> **Exercise**: Although we downloaded all of the sequencing files from all of the boström samples, we're only interested in those samples that are HeLa cells. Delete the SymLinks you created that relate to the U20S cells. Do you remeber where to find the information about which SRRs relate to which samples? Do you remember the bostrom_meta.csv file that I created. Perhaps you could look in there also?
+> **Exercise**: Although we downloaded all of the sequencing files from all of the boström samples, we're only interested in those samples that are HeLa cells. Delete the SymLinks you created that relate to the U20S cells. Do you remember where to find the information about which SRRs relate to which samples? Do you remember the bostrom_meta.csv file that I created? Perhaps you could look in there also?
 
 > **Exercise**: Install fastp and run it on each of the samples. Set the quality threshold to 20. Think about where the outputs from running fastp will go.
 
@@ -308,8 +308,8 @@ It's time to map and count!
 
 When it comes to mapping we have several options available to us.
 
-These can largely be categorized in two:
-- map the reads to a genome and them count them
+These can largely be categorized into two:
+- map the reads to a genome and then count them
 - pseudo-align the reads to a transcriptome
 
 [What is mapping?](https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/mapping/tutorial.html)
@@ -318,19 +318,19 @@ These can largely be categorized in two:
 
 [What is pseudo-alignment?](https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html)
 
-> **Exercise**: Discuss: Understanding that pseudo aligners generally map to a transcriptome whereas tradition splice-aware mappers such as STAR map to a genome, can you think of a down side to working with a pseudo-aligner?
+> **Exercise**: Discuss: Understanding that pseudo aligners generally map to a transcriptome whereas traditional splice-aware mappers such as STAR map to a genome, can you think of a downside to working with a pseudo-aligner?
 
-We're going to go the pseudo-alignment route with [kallisto](https://pachterlab.github.io/kallisto/): it's fast and does exactly what we need. As we're working with Human, there is a well-established set of transcripts to map to (the transcriptome).
+We're going to go the pseudo-alignment route with [kallisto](https://pachterlab.github.io/kallisto/): it's fast and does exactly what we need. As we're working with Human data, there is a well-established set of transcripts to map to (the transcriptome).
 
-I've downloaded the Ensembl transcriptome (release 107) from [here](https://ftp.ensembl.org/pub/release-107/fasta/homo_sapiens/cdna/). I've downloaded it to here: `/home/VTK/bostrom/reference/`
+I've downloaded the Ensembl transcriptome (release 107) from [here](https://ftp.ensembl.org/pub/release-107/fasta/homo_sapiens/cdna/). I've downloaded it here: `/home/VTK/bostrom/reference/`
 
-> **Exercise**: symlink the transcriptome into your directory structure somewhere. Look at the first 10 or so lines of the transciptome using `less` piped into `head`.
+> **Exercise**: symlink the transcriptome into your directory structure somewhere. Look at the first 10 or so lines of the transcriptome using `less` piped into `head`.
 
-We need to do some work to this reference before we use it.
+We need to do some work on this reference before we use it.
 
-Later on we're going to make a file that maps transcript name to gene name. Don't worry about what that means just now. But what we do need to do is remove the ".1" or ".X" that follows the Ensembl identifier.
+Later on, we're going to make a file that maps the transcript name to the gene name. Don't worry about what that means just now. But what we do need to do is remove the ".1" or ".X" that follows the Ensembl identifier.
 
-We're going to do this using [AWK](https://en.wikipedia.org/wiki/AWK). Even knowing about AWK makes you a next level geek. AWK is sort of a programming language like R or Python. But it acts in a very special way, line by line. The command we're going to run is VERY simple but it gets the job done.
+We're going to do this using [AWK](https://en.wikipedia.org/wiki/AWK). Even knowing about AWK makes you a next-level geek. AWK is sort of a programming language like R or Python. But it acts in a very special way, line by line. The command we're going to run is VERY simple but it gets the job done.
 
 > **Exercise**: In the directory where you have symlinked the reference file to, run the following awk command
 
@@ -357,37 +357,37 @@ Before we map or align, we index our reference.
 
 ## Part 9: pseudo-alignment with kallisto
 
-> **Exercise**: Now perform the pseudo-alignment following the kallisto documentation and incorporating this into your nextflow script. Use 10 cores each time you run kallisto count. You'll need to specify some extra information to kallisto. See if you can figure out what these are. Don't be afraid to have a go running it.
+> **Exercise**: Now perform the pseudo-alignment following the kallisto documentation. Use 10 cores each time you run kallisto count. You'll need to specify some extra information to kallisto. See if you can figure out what these are. Don't be afraid to have a go running it.
 
 ## Part 10: importing your data into R
 
-Once you'ce successfully run kallisto have a look at the output directory of kallisto count. Take a look in some of the files. If you're not familiar with a file's extension, google it.
+Once you're successfully run kallisto have a look at the output directory of kallisto count. Take a look in some of the files. If you're not familiar with a file's extension, google it.
 
 In abundance.csv you'll see there is a column tpm.
 
-Raw read counts cannot be used to compare expression levels between samples due to the need to account for differences in transcript length, total number of reads per samples, and sequencing biases. Therefore, RNA-seq isoform quantification software summarize transcript expression levels either as TPM (transcript per million), RPKM (reads per kilobase of transcript per million reads mapped), or FPKM (fragments per kilobase of transcript per million reads mapped); all three measures account for sequencing depth and feature length.
+Raw read counts cannot be used to compare expression levels between samples due to the need to account for differences in transcript length, total number of reads per sample, and sequencing biases. Therefore, RNA-seq isoform quantification software summarizes transcript expression levels either as TPM (transcript per million), RPKM (reads per kilobase of transcript per million reads mapped), or FPKM (fragments per kilobase of transcript per million reads mapped); all three measures account for sequencing depth and feature length.
 
 > **Exercise**: Research: What is tpm? What are RPKM and FPKM? Do the descriptions make sense?
 
-> **Exercise**: Discuss, what are we going to count? Transcripts or Genes? If we want to count genes, how do we go from transcipts to genes?
+> **Exercise**: Discuss, what are we going to count? Transcripts or Genes?
 
 There is a package designed specifically to import data from the output of kallisto. It's called [tximport](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html).
 
-We'll use this to import our data. As part of importing the data we will collapse our count data from the transcript level to the gene level. tximport can also help us with that. To do that we need to provide tximport with a dataframe that maps the transcript ID to a gene ID. Several transcripts can originate from a single gene. These are referred to as isoforms. To generate the tx2gene data frame, we can use another package called [makeTxDbFromEnsembl](https://rdrr.io/bioc/GenomicFeatures/man/makeTxDbFromEnsembl.html) from the [GenomicFeatures](https://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html) package. This can all get a little complicated so I'll help you with this.
+We'll use this to import our data. As part of importing the data, we will collapse our count data from the transcript level to the gene level. tximport can also help us with that. To do that we need to provide tximport with a dataframe that maps the transcript ID to a gene ID. Several transcripts can originate from a single gene. These are referred to as isoforms. To generate the tx2gene data frame, we can use another package called [makeTxDbFromEnsembl](https://rdrr.io/bioc/GenomicFeatures/man/makeTxDbFromEnsembl.html) from the [GenomicFeatures](https://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html) package. This can all get a little complicated so I'll help you with this.
 
 You will find that there is considerable documentation on the above, both as part of the tximport documentation but also with the [DESEQ2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html) program that we will use to do the differential expression analysis.
 
 I've created a file that contains the meta information for the samples here: `/home/VTK/bostrom/bostrom_meta.csv`.
 
-I generated it form [this](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA413699&o=acc_s%3Aa&s=SRR6150369,SRR6150370,SRR6150371,SRR6150372,SRR6150373,SRR6150374,SRR6150375,SRR6150376,SRR6150377,SRR6150378,SRR6150379,SRR6150380,SRR6150381,SRR6150382,SRR6150383,SRR6150384,SRR6150385,SRR6150386,SRR6150387,SRR6150388,SRR6150389). You'll notice that I combined the reads from the same sample.
+I generated it from [this](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA413699&o=acc_s%3Aa&s=SRR6150369,SRR6150370,SRR6150371,SRR6150372,SRR6150373,SRR6150374,SRR6150375,SRR6150376,SRR6150377,SRR6150378,SRR6150379,SRR6150380,SRR6150381,SRR6150382,SRR6150383,SRR6150384,SRR6150385,SRR6150386,SRR6150387,SRR6150388,SRR6150389). You'll notice that I combined the reads from the same sample.
 
-> **Exercise**: import your outputs from kallisto into R so that we can use DESEQ2 to analyse them. If you're up for the challenge, have a go at doing it yourself following the [DESeq2 documentation](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#input-data). Else follow along with me.
+> **Exercise**: import your outputs from kallisto into R so that we can use DESEQ2 to analyze them. If you're up for the challenge, have a go at doing it yourself following the [DESeq2 documentation](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#input-data). Else follow along with me.
 
 Now it's time for us to create the DESeq2 object and perform the analysis.
 
 The DESeq2 documentation is fantastic and I would suggest you open it up now and follow along. To create the first figure from the paper we'll be using some of the standard approaches in this document. OR WILL WE!
 
-> **Exercise**: Have a think about how we create a heat map like the one they're produced in the paper. Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reporduce the findings?
+> **Exercise**: Have you thought about how we create a heat map like the one they produced in the paper? Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reproduce the findings?
 
 ## Day 3
 ## part 11: Nextflow!
