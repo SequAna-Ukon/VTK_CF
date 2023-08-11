@@ -298,7 +298,9 @@ I've worked with each of these over the years. For ease of speed, I like fastp.
 
 > **Exercise**: Install fastp and run it on each of the samples. Set the quality threshold to 20. Think about where the outputs from running fastp will go.
 
-
+```bash
+fastp  -q 20 -i [raw_reads].fastq.gz -o [clean_reads].fastq.gz
+````
 
 ## Part 8: preparing the reference
 
@@ -355,9 +357,17 @@ Before we map or align, we index our reference.
 
 [What is the GRCh38 assembly?](https://gatk.broadinstitute.org/hc/en-us/articles/360035890951-Human-genome-reference-builds-GRCh38-or-hg38-b37-hg19)
 
+````bash
+kallisto index -i Homo_sapiens.GRCh38.cdna.all.kallisto.index Homo_sapiens.GRCh38.cdna.all.short_name.fa
+````
+
 ## Part 9: pseudo-alignment with kallisto
 
 > **Exercise**: Now perform the pseudo-alignment following the kallisto documentation. Use 10 cores each time you run kallisto count. You'll need to specify some extra information to kallisto. See if you can figure out what these are. Don't be afraid to have a go running it.
+
+````bash
+kallisto quant -i [indexed_reference] -o ./ -t [10] --single -l 200 -s 30 clean_read
+````
 
 ## Part 10: importing your data into R
 
@@ -400,3 +410,21 @@ There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.
 > **Exercise**: With Ben's help, write a Nextflow script that will do what we've just done. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
 
 ## part 12: nf-core
+
+nextflow run nf-core/fetchngs  -profile conda --input ids.csv --nf_core_pipeline rnaseq  --outdir raw_reads
+
+
+nextflow run nf-core/rnaseq -r 3.12.0 -profile singularity --input raw_reads/samplesheet/samplesheet.csv --outdir bostrom_nfcore --genome GRCh38 --trimmer fastp --pseudo_aligner salmon --skip_alignment
+
+
+nextflow run nf-core/rnaseq -r 3.12.0 -profile singularity --input raw_reads/samplesheet/samplesheet.csv --outdir bostrom_nfcore --fasta Reference/GRCh38.fa --gtf Reference/GRCh38.gtf --salmon_index Reference/salmon/ --trimmer fastp --pseudo_aligner salmon --skip_alignment
+
+SRR6150369,SRR6150369.fastq.gz,HeLa,G1,1
+SRR6150370,SRR6150370.fastq.gz,HeLa,G1,2
+SRR6150371,SRR6150371.fastq.gz,HeLa,G1,3
+SRR6150372,SRR6150372.fastq.gz,HeLa,S,1
+SRR6150373,SRR6150373.fastq.gz,HeLa,S,2
+SRR6150374,SRR6150374.fastq.gz,HeLa,S,3
+SRR6150375.combined,SRR6150375.combined.fastq.gz,HeLa,G2,1
+SRR6150378.combined,SRR6150378.combined.fastq.gz,HeLa,G2,2
+SRR6150381.combined,SRR6150381.combined.fastq.gz,HeLa,G2,3
