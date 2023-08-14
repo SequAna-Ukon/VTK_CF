@@ -391,7 +391,7 @@ I've created a file that contains the meta information for the samples here: `/h
 
 I generated it from [this](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA413699&o=acc_s%3Aa&s=SRR6150369,SRR6150370,SRR6150371,SRR6150372,SRR6150373,SRR6150374,SRR6150375,SRR6150376,SRR6150377,SRR6150378,SRR6150379,SRR6150380,SRR6150381,SRR6150382,SRR6150383,SRR6150384,SRR6150385,SRR6150386,SRR6150387,SRR6150388,SRR6150389). You'll notice that I combined the reads from the same sample.
 
-> **Exercise**: import your outputs from kallisto into R so that we can use DESEQ2 to analyze them. If you're up for the challenge, have a go at doing it yourself following the [DESeq2 documentation](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#input-data). Else follow along with me.
+> **Exercise**: import your outputs from kallisto into R so that we can use DESeq2 to analyze them. If you're up for the challenge, have a go at doing it yourself following the [DESeq2 documentation](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#input-data). Else I've created an R script [here](https://github.com/SequAna-Ukon/VTK2023/blob/main/bostrom.r) that contains all downstream analyses steps, including plotting. 
 
 Now it's time for us to create the DESeq2 object and perform the analysis.
 
@@ -407,7 +407,7 @@ What if I told you there was a better way?!
 
 There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html).
 
-> **Exercise**: With Ben's help, write a Nextflow script that will do what we've just done. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
+> **Exercise**: I have written [this](https://github.com/SequAna-Ukon/VTK2023/blob/main/bostrom.nf) Nextflow script and its [config file](https://github.com/SequAna-Ukon/VTK2023/blob/main/nextflow.config)  that will do preprocessing step using fastp. Try to edit it in a way that it can perform the indexing and pseudo-alignment steps as well. What do you think? If you were to continue with bioinformatics, would you invest the time to learn Nextflow. What are some of the other benefits of working with Nextflow?
 
 ## part 12: nf-core
 
