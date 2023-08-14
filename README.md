@@ -411,6 +411,10 @@ There is! It's called [Nextflow](https://www.nextflow.io/docs/latest/getstarted.
 
 ## part 12: nf-core
 
+If you are not really exited by Nextflow or programming generally, then the good new that still it will be work with Nexflow by using the developed pipelines at [nf-core](https://nf-co.re/).   nf-core is a community effort to collect a curated set of analysis pipelines built using Nextflow. It provides highly automated and optimised pipelines that guarantee reproducibility of results for their users. Single users profit from portable, documented, and easy-to-use workflows
+
+Sure, note all analyses pipeline are avaliable but the good news is a bulk-RNASeq is avaliable which can be used for our data. Then let's take a look on it. 
+
 nextflow run nf-core/fetchngs  -profile conda --input ids.csv --nf_core_pipeline rnaseq  --outdir raw_reads
 
 
