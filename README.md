@@ -415,20 +415,25 @@ If you are not really exited by Nextflow or programming generally, then the good
 
 Sure, note all analyses pipeline are avaliable but the good news is a bulk-RNASeq is avaliable which can be used for our data. Then let's take a look on it. 
 
+> **Exercise** You will find that there is considerable documentation on nf-core [here](https://nf-co.re/docs/usage/introduction). Also, please read carefully documentation of the nf-core [rnaseq pipeline](https://nf-co.re/rnaseq/3.12.0)
+
+i believe that after reading the pipeline documentation, you can run it by yourself but here i will brief some hands-out
+
+Let's start from the very beginning using nf-core. Since we can use a pipeline line called [fetching](https://nf-co.re/fetchngs/1.10.0) to download the raw data from GeneBank. One advantage of using this pipeline is that it will prepare the metadata file for us after activating the falg ````--nf_core_pipeline rnaseq````
+
 nextflow run nf-core/fetchngs  -profile conda --input ids.csv --nf_core_pipeline rnaseq  --outdir raw_reads
 
+- Did you notice that we can use the conda package management system by using  the flag ````-profile conda````, which is another advantage of using Nextflow. 
 
+> **Exercise** Try to download the Hela raw reads from the Böstrom et al 2017 study using fetching pipeline. you can use the list of accession numbers that I prepared ````home/VTK/bostrom/ids.csv```` feel free to prepare your own file according to the documentation.
+
+
+````bash
 nextflow run nf-core/rnaseq -r 3.12.0 -profile singularity --input raw_reads/samplesheet/samplesheet.csv --outdir bostrom_nfcore --genome GRCh38 --trimmer fastp --pseudo_aligner salmon --skip_alignment
+````
 
+For saving time, you can skip the alignment step and avoid downloading the reference and the indexing steps by giving the pipeline its paths as follows:
 
-nextflow run nf-core/rnaseq -r 3.12.0 -profile singularity --input raw_reads/samplesheet/samplesheet.csv --outdir bostrom_nfcore --fasta Reference/GRCh38.fa --gtf Reference/GRCh38.gtf --salmon_index Reference/salmon/ --trimmer fastp --pseudo_aligner salmon --skip_alignment
-
-SRR6150369,SRR6150369.fastq.gz,HeLa,G1,1
-SRR6150370,SRR6150370.fastq.gz,HeLa,G1,2
-SRR6150371,SRR6150371.fastq.gz,HeLa,G1,3
-SRR6150372,SRR6150372.fastq.gz,HeLa,S,1
-SRR6150373,SRR6150373.fastq.gz,HeLa,S,2
-SRR6150374,SRR6150374.fastq.gz,HeLa,S,3
-SRR6150375.combined,SRR6150375.combined.fastq.gz,HeLa,G2,1
-SRR6150378.combined,SRR6150378.combined.fastq.gz,HeLa,G2,2
-SRR6150381.combined,SRR6150381.combined.fastq.gz,HeLa,G2,3
+````bash
+nextflow run nf-core/rnaseq -r 3.12.0 -profile singularity --input raw_reads/samplesheet/samplesheet.csv --outdir bostrom_nfcore --fasta /home/VTK/bostrom/Reference/GRCh38.fa --gtf /home/VTK/bostrom/Reference/GRCh38.gtf --salmon_index /home/VTK/bostrom/Reference/salmon/ --trimmer fastp --pseudo_aligner salmon --skip_alignment
+````
