@@ -399,7 +399,7 @@ The DESeq2 documentation is fantastic and I would suggest you open it up now and
 
 > **Exercise**: Have you thought about how we create a heat map like the one they produced in the paper? Have a look at the methods of the paper. Critically appraise them. Do you think they are sufficient to be able to reproduce the findings?
 
-## Day 3
+## Day 3: Workflow management systems
 ## part 11: Nextflow!
 Let's be honest, running fastp once on each of the samples is super annoying. I guess we could generate a bash script to do it for us, but that would be pretty complicated and it would likely run in parallel, and we'd still have to manually take care of the directory structures for the results, and keep track of which versions of the software we used etc. etc. etc. And this was just for one bioinformatic tool! A typical pipeline may have upwards of 10 tools used in sequence, with the outputs combined in certain ways.
 
