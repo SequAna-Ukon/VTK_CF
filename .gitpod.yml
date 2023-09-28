@@ -1,4 +1,4 @@
-image: greenjune/symportal-kitchen:flask-app
+image: conda/miniconda3
 
 # List of VS Code extensions to install (optional)
 vscode:
