@@ -1,7 +1,1 @@
-image: ubuntu:latest
-
-# List of VS Code extensions to install (optional)
-vscode:
-  extensions:
-    - ms-python.python
-    - ikuyadeu.r
+image: gitpod/workspace-python
