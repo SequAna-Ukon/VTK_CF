@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: ubuntu:latest
 
 # List of VS Code extensions to install (optional)
 vscode:
@@ -31,3 +30,12 @@ tasks:
     command: |
       # Install your desired Conda packages here
       conda install -c bioconda -y nextflow
+
+  - name: Install R and R packages
+    command: |
+      # Install R (you can specify a particular version if needed)
+      apt-get update
+      apt-get install -y r-base
+
+      # Install R packages using R's package manager (replace 'package1' and 'package2' with the packages you need)
+      R -e "install.packages(c('tidyverse', 'ggplo2'), repos='http://cran.rstudio.com/')"
