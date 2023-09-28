@@ -1,41 +1,7 @@
-image: ubuntu:latest
+image: greenjune/symportal-kitchen:flask-app
 
 # List of VS Code extensions to install (optional)
 vscode:
   extensions:
     - ms-python.python
     - ikuyadeu.r
-
-# Setup tasks to run when the workspace is started
-tasks:
-  - name: Install Miniconda
-    init: true
-    command: |
-      # Download and install Miniconda
-      wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-      bash miniconda.sh -b -p $HOME/miniconda
-      rm miniconda.sh
-
-  - name: Create Conda environment
-    command: |
-      # Activate the base environment
-      source $HOME/miniconda/etc/profile.d/conda.sh
-      conda activate base
-
-      # Create and activate a new Conda environment (replace 'myenv' with your desired environment name)
-      conda create -n teaching python=3.8
-      conda activate teaching
-
-  - name: Install Conda packages
-    command: |
-      # Install your desired Conda packages here
-      conda install -c bioconda -y nextflow
-
-  - name: Install R and R packages
-    command: |
-      # Install R (you can specify a particular version if needed)
-      apt-get update
-      apt-get install -y r-base
-
-      # Install R packages using R's package manager (replace 'package1' and 'package2' with the packages you need)
-      R -e "install.packages(c('tidyverse', 'ggplo2'), repos='http://cran.rstudio.com/')"
