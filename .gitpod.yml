@@ -1,1 +1,10 @@
 image: gitpod/workspace-python
+
+tasks:
+  - name: Install Nextflow
+    init: |
+      # Download and install Nextflow
+      wget -qO- https://get.nextflow.io | bash
+
+      # Make Nextflow executable
+      chmod +x nextflow
