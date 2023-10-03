@@ -16,7 +16,5 @@ vscode:
     - streetsidesoftware.code-spell-checker # Spelling checker for source code
 
 
-tasks:
-    - name: R installation
-      command: |
-          brew install R
+
+image: gitpod/workspace-full
