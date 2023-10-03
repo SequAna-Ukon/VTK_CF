@@ -1,21 +1,6 @@
-image: gitpod/workspace-full
+image: nfcore/gitpod:latest
+         
 
-
-
-tasks:
-    - name: R installation
-      command: |
-          brew install R
-          
-    - name: Install Nextflow
-  # https://www.nextflow.io/docs/latest/getstarted.html
-      init: |
-      
-           wget -qO- https://get.nextflow.io | bash
-
-           chmod +x nextflow
-
-           nextflow self-update
       
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
@@ -29,3 +14,9 @@ vscode:
     - nextflow.nextflow                      # Nextflow syntax highlighting
     - oderwat.indent-rainbow # Highlight indentation level
     - streetsidesoftware.code-spell-checker # Spelling checker for source code
+
+
+tasks:
+    - name: R installation
+      command: |
+          brew install R
