@@ -10,7 +10,7 @@ tasks:
           sudo apt-get update
           sudo apt-get install -y r-base
      
-    - name: Install Nextflow $ nf core
+    - name: Install Nextflow & nf core
       command: |
           curl -s https://get.nextflow.io | bash
           pip install nf-core
