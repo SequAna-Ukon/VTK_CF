@@ -2,20 +2,19 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
-      # Install Nextflow
-      curl -s https://get.nextflow.io | bash
-      mv nextflow $HOME/bin
-      export PATH=$HOME/bin:$PATH
+    - name: run
+      command: |
+          apt-get update && sudo
+    - name: Install R
+      command: |
+          sudo apt-get update
+          sudo apt-get install -y r-base
+     
+    - name: Install Nextflow $ nf core
+      command: |
+          curl -s https://get.nextflow.io | bash
+          pip install nf-core
 
-      # Install R
-      sudo apt-get update
-      sudo apt-get install -y r-base
-
-  - command: |
-      # Verify Nextflow and R installation
-      nextflow -version
-      R --version
 
 ports:
   - port: 8888
