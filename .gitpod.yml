@@ -13,6 +13,8 @@ tasks:
     - name: Install Nextflow & nf core
       command: |
           curl -s https://get.nextflow.io | bash
+          sudo mv nextflow /bin/
+          export PATH=/bin:$PATH
           pip install nf-core
 
 
