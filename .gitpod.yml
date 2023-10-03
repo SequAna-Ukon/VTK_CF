@@ -1,5 +1,22 @@
-image: nfcore/gitpod:latest
+image: gitpod/workspace-full
 
+
+
+tasks:
+    - name: R installation
+      command: |
+          brew install R
+          
+    - name: Install Nextflow
+  # https://www.nextflow.io/docs/latest/getstarted.html
+      init: |
+      
+           wget -qO- https://get.nextflow.io | bash
+
+           chmod +x nextflow
+
+           nextflow self-update
+      
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
     - codezombiech.gitignore # Language support for .gitignore files
@@ -12,12 +29,3 @@ vscode:
     - nextflow.nextflow                      # Nextflow syntax highlighting
     - oderwat.indent-rainbow # Highlight indentation level
     - streetsidesoftware.code-spell-checker # Spelling checker for source code
-
-tasks:
-    - name: R installation
-      command: |
-          apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-          && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-          && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-          && apt install r-base
-          
