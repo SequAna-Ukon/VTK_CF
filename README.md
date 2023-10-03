@@ -196,16 +196,13 @@ if (!require("BiocManager", quietly = TRUE))
 ```
 
 Install some of the packages we will be using:
-- dplyr
-- tidyverse
-- GenomicFeatures
-- RMariaDB
-- stringr
-- tximport
-- DESeq2
-- pheatmap
-- vsn
-- matrixStats
+
+```bash
+
+bio_pkgs <- c("dplyr", "tidyverse", "stringr", "RMariaDB", "tximport", "DESeq2", "pheatmap", "vsn", "matrixStats", "GenomicFeatures")
+
+BiocManager::install(bio_pkgs)
+````
 
 # DAY 2: Böstrom et al 2017
 
