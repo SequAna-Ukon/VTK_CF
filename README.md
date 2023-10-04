@@ -76,9 +76,10 @@ As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
 But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's totally normal.
 
-Some packages take a long time to install so it's best to do this setup in advance. Then, i including any requirements for the day's exercises these will be listed at the beginning of
+Some packages take a long time to install so it's best to do this setup in advance. Then, we will install all requirements during the first two days while we introduce you to the bash and R scripting basics. 
 
-If there are  each day's section in a 'requirements' section. For example, 
+Last but not least, Here are links to tutorial hand-outs for each practical session, Enjoy training.
+
 
 - DAY 1: [Installing programs bash scripting introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/DAY-1:-Installing-programs-bash-scripting-introduction)
 - DAY 2: [R and containers introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-2:-R-and-containers-introduction)
