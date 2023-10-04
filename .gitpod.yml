@@ -2,22 +2,31 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+
     - name: run
-      command: |
+      init: |
+          cd /workspace
           apt-get update && sudo
     - name: Install R
       command: |
+          cd /workspace
           sudo apt-get update
           sudo apt-get install -y r-base
      
     - name: Install Nextflow & nf core
       command: |
+          cd /workspace
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /bin/
           export PATH=/bin:$PATH
           pip install nf-core
+     
+    - name: retrieve references data
+      command: |
 
+          cd /workspace
+          curl ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/nWHBmDcWaCjf5bC/download?file=filename.tar.xz
+          | tar xf -
+          rm -rf ref.tar.xz
+workspaceLocation: "/workspace"
 
-ports:
-  - port: 8888
-    onOpen: open-preview
