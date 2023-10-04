@@ -42,7 +42,7 @@ you to complete the practical.
 
 The main objective of this practical is to introduce you to the tools used by computational biologists/bioinformaticians to generate meaningful results from sequencing data.
 
-The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 3 or 4 days!), nor to perfectly recreate the figures from the manuscript. The critical part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
+The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 4 or 5 days!), nor to perfectly recreate the figures from the manuscript. The critical part is the journey, not the destination. So take your time. Any proficiency gained in the techniques we cover 
 will likely be extremely valuable to you in your career as a research scientist.
 
 To achieve this objective we will work with the sequencing data archived as part of the study mentioned above to recapitulate several of their key findings.
@@ -56,7 +56,7 @@ In doing so we will cover many broad informatic/bioinformatic techniques not lim
     - access to archived sequencing data
     - sequencing pre-processing and quality control
     - sequence analysis
-- R scripting to manipulate, analyze and visualize data
+- R scripting to manipulate, analyze, and visualize data
 - Workflow management with Nextflow
 
 I will provide resources for all topics we cover and you are encouraged to look at these
@@ -65,9 +65,9 @@ resources if you wish to further your knowledge of the topic.
 If you find yourself ahead of the rest of the group, you can just work on whatever you like or take the time to look over the topics we've covered so far in more detail.
 
 # Structure of the practical
-The practical will be divided up by days (1-3). We'll hold the 4th day spare and see how we're getting on. We can be flexible with how or if we use the 4th day.
+The practical will be divided up by days (1-5). We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day.
 
-Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead we take our time on the journey that reaches the final figures.
+Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead take our time on the journey that reaches the final figures.
 
 One of the most essential skills in computation biology/informatics is the effective
 sourcing of reference material. I.e. good googling!
@@ -76,7 +76,9 @@ As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
 But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's totally normal.
 
-If there are any requirements for the day's exercises these will be listed at the beginning of each day's section in a 'requirements' section. For example, some packages take a long time to install so it's best to do this setup in advance.
+Some packages take a long time to install so it's best to do this setup in advance. Then, i including any requirements for the day's exercises these will be listed at the beginning of
+
+If there are  each day's section in a 'requirements' section. For example, 
 
 - DAY 1: [Installing programs bash scripting introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/DAY-1:-Installing-programs-bash-scripting-introduction)
 - DAY 2: [R introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-2:-R-introduction)
