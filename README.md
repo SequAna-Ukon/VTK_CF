@@ -81,7 +81,6 @@ Some packages take a long time to install so it's best to do this setup in advan
 If there are  each day's section in a 'requirements' section. For example, 
 
 - DAY 1: [Installing programs bash scripting introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/DAY-1:-Installing-programs-bash-scripting-introduction)
-- DAY 2: [R introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-2:-R-introduction)
-- Day 3: [docker and singularity containers.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-3:-docker-and-singularity-containers)
-- DAY 4: [Böstrom et al 2017](https://github.com/SequAna-Ukon/VTK2023/wiki/DAY-4:-B%C3%B6strom-et-al-2017)
-- Day 5: [Workflow management systems.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-5:-Workflow-management-systems)
+- DAY 2: [R and containers introduction.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-2:-R-and-containers-introduction)
+- DAY 3: [Böstrom et al 2017](https://github.com/SequAna-Ukon/VTK2023/wiki/DAY-3:-B%C3%B6strom-et-al-2017)
+- Day 4: [Workflow management systems.](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-4:-Workflow-management-systems)
