@@ -7,6 +7,14 @@ tasks:
       init: |
           cd /workspace
           apt-get update && sudo
+
+    - name: install mamba 
+      init: |
+          cd /workspace
+          wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+          bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
+          /workspace/mambaforge/bin/mamba init bash
+          source ${HOME}/.bashrc
     - name: Install R
       command: |
           cd /workspace
