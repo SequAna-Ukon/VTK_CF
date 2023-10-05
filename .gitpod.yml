@@ -1,14 +1,44 @@
-image: nfcore/gitpod:latest
+image:
+  file: .gitpod.Dockerfile
 
-vscode:
-  extensions: # based on nf-core.nf-core-extensionpack
-    - codezombiech.gitignore # Language support for .gitignore files
-    # - cssho.vscode-svgviewer                 # SVG viewer
-    - esbenp.prettier-vscode # Markdown/CommonMark linting and style checking for Visual Studio Code
-    - eamodio.gitlens # Quickly glimpse into whom, why, and when a line or code block was changed
-    - EditorConfig.EditorConfig # override user/workspace settings with settings found in .editorconfig files
-    - Gruntfuggly.todo-tree # Display TODO and FIXME in a tree view in the activity bar
-    - mechatroner.rainbow-csv # Highlight columns in csv files in different colors
-    - nextflow.nextflow                      # Nextflow syntax highlighting
-    - oderwat.indent-rainbow # Highlight indentation level
-    - streetsidesoftware.code-spell-checker # Spelling checker for source code
+tasks:
+
+    - name: run
+      init: |
+          cd /workspace
+          apt-get update && sudo
+
+    - name: install mamba 
+      init: |
+          cd /workspace
+          wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+          bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
+          /workspace/mambaforge/bin/mamba init bash
+          source ${HOME}/.bashrc
+    - name: Install R
+      command: |
+          cd /workspace
+          sudo apt-get update
+          sudo apt-get install -y r-base
+     
+    - name: Install Nextflow & nf core
+      command: |
+          cd /workspace
+          curl -s https://get.nextflow.io | bash
+          sudo mv nextflow /bin/
+          export PATH=/bin:$PATH
+    
+    - name: Install Nextflow & nf core
+      command: |
+          cd /workspace
+          pip install nf-core
+
+    - name: retrieve references data
+      command: |
+          cd /workspace
+          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/nWHBmDcWaCjf5bC/download?file=filename.tar.xz
+          tar -xf ref.tar.xz
+          rm -rf ref.tar.xz
+          
+workspaceLocation: "/workspace"
+
