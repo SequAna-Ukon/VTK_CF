@@ -1,35 +1,320 @@
-<!doctype html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>New Tab</title>
-    <style>
-      body {
-        background: #000000;
-        margin: 0;
-      }
+---
+title: "Introduction to R Programming"
+format: html
+editor: visual
+---
 
-      #backgroundImage {
-        border: none;
-        height: 100%;
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        visibility: hidden;
-        width: 100%;
-      }
+# Introduction in R
 
-      [show-background-image] #backgroundImage {
-        visibility: visible;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe id="backgroundImage" src="chrome-untrusted://new-tab-page/custom_background_image?url=https%3A%2F%2Flh5.googleusercontent.com%2Fproxy%2Fxvtq6_782kBajCBr0GISHpujOb51XLKUeEOJ2lLPKh12-xNBTCtsoHT14NQcaH9l4JhatcXEMBkqgUeCWhb3XhdLnD1BiNzQ_LVydwg%3Dw3840-h2160-p-k-no-nd-mv"></iframe>
-    <ntp-app></ntp-app>
-    <script type="module" src="new_tab_page.js"></script>
-    <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
-    <link rel="stylesheet" href="chrome://theme/colors.css?sets=ui,chrome">
-    <link rel="stylesheet" href="shared_vars.css">
-  </body>
-</html>
+## What is R?
+
+-   R is a programming language for scientific computing and data analysis with a focus on visualization and reproducibility.
+
+-   R is free, cross-platform open-source software.
+
+-   R is an interpreted language with a command-line interface.
+
+-   R is a multi-paradigm language that combines different programming paradigms.
+
+## **Advantages of R**
+
+-   R is free, its code is open.
+
+-   A vast number of built-in statistical tests, mathematical algorithms, and functions for data analysis in academic and industry research.
+
+-   Extensibility: a modular system of packages.
+
+-   A large community of developers.
+
+-   Fully programmable high-level graphics.
+
+-   Cross-platform compatibility and reproducibility of results.
+
+-   R is becoming popular: articles, books, conferences, user groups.
+
+## Disadvantages of R
+
+-   R is a bit complex as a programming language.
+
+-   Documentation for some methods is not readily accessible without a deep understanding of mathematical methods and statistical procedures.
+
+-   It is easy to write bad (slow, unsupported, unreadable) code.
+
+-   Add-on packages can become outdated.
+
+-   Some inconsistency can be noticed in variable naming and method implementation.
+
+## Working Environment
+
+-   Where to install R: <https://www.r-project.org/>
+
+-   RStudio (IDE): <https://www.rstudio.com>
+
+-   VS Code (with additional Extention): <https://code.visualstudio.com/>
+
+# Basics
+
+-   R is an interpreted language.
+
+-   Commands are executed line by line.
+
+-   The command line is located in the "Console" tab in RStudio.
+
+```{r}
+2 + 1
+```
+
+```{r}
+sin(pi/6)
+```
+
+## Variables
+
+Assignment operator: `<-` . In RStudio the keyboard shortcut for the assignment operator \<- is **Alt + - (Windows) or Option + - (Mac)**.
+
+```{r}
+cats <- 5
+dogs <- 2
+pets <- cats + dogs
+```
+
+Get the result
+
+```{r}
+pets
+```
+
+### Nomenclature of R Variables
+
+The following rules need to be kept in mind while naming a R variable: 
+
+-   A valid variable name consists of a combination of alphabets, numbers, dot(.), and underscore(\_) characters. Example: var.1\_ is valid
+
+-   Apart from the dot and underscore operators, no other special character is allowed. Example: var\$1 or var#1 both are invalid
+
+-   Variables can start with alphabets or dot characters. Example: .var or var is valid
+
+-   The variable should not start with numbers or underscore. Example: 2var or \_var is invalid.
+
+-   If a variable starts with a dot the next thing after the dot cannot be a number. Example: .3var is invalid
+
+-   The variable name should not be a reserved keyword in R. Example: TRUE, FALSE,etc.
+
+### Global Environment
+
+-   Each variable lives in its own environment.
+
+-   The variable's environment is the space where it can be accessed.
+
+-   All variables created in the console belong to the global environment.
+
+-   Variables from the global environment are accessible in the "Environment" tab in RStudio.
+
+```{r}
+ls()
+```
+
+## Functions
+
+### Built-in Functions
+
+In R, there are many built-in functions, such as rnorm.
+
+```{r}
+?rnorm
+```
+
+```{r}
+rnorm(15)
+```
+
+Function arguments can be specified by name.
+
+```{r}
+rnorm(15, mean = 5, sd = 3)
+```
+
+### Writing Functions
+
+The keyword **`function`**: in parentheses are the function's *arguments*, and in curly braces are the function's *body* (its code).
+
+```{r}
+returntwo <- function() { 
+  y <- 2
+  return(y)
+}
+
+returntwo()
+```
+
+### Functions Environment
+
+```{r}
+addten <- function(x) { 
+  x <- x + 10
+  return(x)
+}
+
+addten(cats)
+```
+
+How many cats we have now?
+
+```{r}
+cats
+```
+
+### Global Assignment Operator
+
+In R, the global assignment operator (`<<-`) creates a global variable inside a function.
+
+The `<<-` operator helps us make a variable that belongs to the global scope even when defined in a function.
+
+```{r}
+addten <- function(x) { 
+  moredogs <<- x + 10
+}
+
+addten(dogs)
+dogs
+moredogs
+```
+
+### Side Effect
+
+A function is said to have a side-effect when the function changes a non-local state or when its output is not deterministic.
+
+⚠️ Usually it is not the best practice to write such functions.
+
+### Remove Objects from Environment
+
+```{r}
+rm(dogs)
+ls()
+```
+
+```{r}
+rm(moredogs)
+ls()
+```
+
+## Control Structures
+
+### If-Else Statement
+
+Construction syntax:
+
+```{r eval=FALSE}
+if (<condition>) {<do something>} else {<do another thing>}
+```
+
+-   Here, **`<condition>`** is an expression whose result will be a logical vector of length 1 (**`TRUE`** or **`FALSE`**, **`NA`** will result in an error).
+
+-   **`<do something>`** and **`<do another thing>`** are arbitrary commands.
+
+```{r}
+if (rnorm(1) > 0) {
+  print("Greater!")
+} else {
+  print("Less!")
+}
+```
+
+One-line syntax
+
+```{r}
+ifelse(runif(10) > 0.5, "Heads", "Tails")
+```
+
+### Multiple Choise: switch
+
+The common syntax
+
+```{r, eval=FALSE}
+switch(expression, case1, case2, case3....)
+```
+
+Example:
+
+```{r}
+switch("color",
+       "color" = "red",
+       "shape" = "square",
+       "length" = 5)
+```
+
+`switch` is not frequently used in R, but it is good to know about it.
+
+### Repeat Loop
+
+```{r}
+i <- 0
+repeat {
+  i <- i + runif(1)
+  print(i)
+  if (i > 5) break
+}
+```
+
+### While Loop
+
+```{r}
+i <- 2^14
+while (i > 1000) {
+  i <- i/2
+  print(i)
+}
+```
+
+### For Loop
+
+```{r}
+for (i in 1:8) {
+  if (i %% 2 == 0) print(i)
+}
+```
+
+Multiline statements:
+
+```{r}
+for (i in letters) {
+  if (i == "b") next
+  if (i == "d") break
+  print(i)
+}
+```
+
+### For Loop vs Vectorization
+
+In R, for loops are generally slower than vectorized operations because of the way R is designed and optimized for vectorized operations. Here are some key reasons why for loops can be slower compared to vectorization in R:
+
+-   **Internal Optimization**: R is an interpreted language, and it has been optimized for vectorized operations.
+
+-   **Function Call Overhead**: In R, function calls can be relatively expensive in terms of performance. When you use a for loop to iterate over elements and perform a simple operation on each element, you are making multiple function calls within the loop (e.g., accessing and modifying elements). This overhead can slow down the execution of the loop.
+
+-   **Memory Allocation**: Vectorized operations in R often require less memory allocation compared to for loops. When you use a for loop to build a result iteratively, R may need to allocate memory for each iteration, which can be less efficient than allocating memory for an entire vector in one go.
+
+-   **Ease of Parallelism**: Vectorized operations in R are more conducive to parallelism. Many modern CPUs have multiple cores, and R can take advantage of this by parallelizing vectorized operations. In contrast, for loops are typically executed sequentially, making it harder to utilize multiple CPU cores effectively.
+
+-   **Optimized Libraries**: R has many optimized libraries and packages that are designed to work with vectors and matrices efficiently. These libraries often provide vectorized functions that can perform complex operations on large datasets much faster than equivalent for loops.
+
+```{r}
+v <- 1:1e5
+system.time({
+  x <- 0
+  for (i in v) x[i] <- sqrt(v[i])
+})
+```
+
+```{r}
+system.time({
+  y <- sqrt(v)
+})
+identical(x, y)
+```
+
+⚠️ Don't use for loop on large data. Use vectorization approach instead.
+
+# Packages
+
+TBD
