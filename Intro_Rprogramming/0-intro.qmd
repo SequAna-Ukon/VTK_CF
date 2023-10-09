@@ -1,10 +1,11 @@
 ---
 title: "Introduction to R Programming"
+author: "Yulia Iakovleva"
 format: html
 editor: visual
 ---
 
-# Introduction in R
+# Introduction to R
 
 ## What is R?
 
@@ -226,7 +227,7 @@ One-line syntax
 ifelse(runif(10) > 0.5, "Heads", "Tails")
 ```
 
-### Multiple Choise: switch
+### Multiple Choice: switch
 
 The common syntax
 
@@ -274,7 +275,7 @@ for (i in 1:8) {
 }
 ```
 
-Multiline statements:
+Multi-Line statements:
 
 ```{r}
 for (i in letters) {
@@ -284,37 +285,75 @@ for (i in letters) {
 }
 ```
 
-### For Loop vs Vectorization
-
-In R, for loops are generally slower than vectorized operations because of the way R is designed and optimized for vectorized operations. Here are some key reasons why for loops can be slower compared to vectorization in R:
-
--   **Internal Optimization**: R is an interpreted language, and it has been optimized for vectorized operations.
-
--   **Function Call Overhead**: In R, function calls can be relatively expensive in terms of performance. When you use a for loop to iterate over elements and perform a simple operation on each element, you are making multiple function calls within the loop (e.g., accessing and modifying elements). This overhead can slow down the execution of the loop.
-
--   **Memory Allocation**: Vectorized operations in R often require less memory allocation compared to for loops. When you use a for loop to build a result iteratively, R may need to allocate memory for each iteration, which can be less efficient than allocating memory for an entire vector in one go.
-
--   **Ease of Parallelism**: Vectorized operations in R are more conducive to parallelism. Many modern CPUs have multiple cores, and R can take advantage of this by parallelizing vectorized operations. In contrast, for loops are typically executed sequentially, making it harder to utilize multiple CPU cores effectively.
-
--   **Optimized Libraries**: R has many optimized libraries and packages that are designed to work with vectors and matrices efficiently. These libraries often provide vectorized functions that can perform complex operations on large datasets much faster than equivalent for loops.
-
-```{r}
-v <- 1:1e5
-system.time({
-  x <- 0
-  for (i in v) x[i] <- sqrt(v[i])
-})
-```
-
-```{r}
-system.time({
-  y <- sqrt(v)
-})
-identical(x, y)
-```
-
-⚠️ Don't use for loop on large data. Use vectorization approach instead.
-
 # Packages
 
-TBD
+## Package Repositories
+
+There are different sources for packages installation
+
+-   CRAN (like golden standard): <https://cran.r-project.org/>
+
+-   Repository for biological data analysis: <https://www.bioconductor.org/>
+
+-   You can also install something directly from the source code (GitHub, Bitbucket)
+
+Check already installed packages:
+
+```{r}
+installed.packages()
+```
+
+## How to Install
+
+### From CRAN
+
+```{r}
+install.packages("ggplot2")
+```
+
+### From Bioconductor
+
+First we need to install `BiocManager` R package from CRAN and then use `BiocManager` to install `DESeq2` from Bioconductor:
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DESeq2")
+```
+
+### From GitHub
+
+The `devtools` R package helps to install packages from the source code pushed to the GitHub:
+
+```{r}
+devtools::install_github("twitter/AnomalyDetection")
+```
+
+## How to Load/Attach R Package
+
+```{r}
+library(devtools)
+```
+
+To check loaded packages:
+
+```{r}
+sessionInfo()
+```
+
+## Exercise
+
+Let's try to execute the following code:
+
+```{r}
+say('Hello', by = "cow")
+```
+
+We see the error. Try to figure out:
+
+-   Which R package belongs this function
+
+-   From which repository should we install the package
+
+-   Load the package to make the function available

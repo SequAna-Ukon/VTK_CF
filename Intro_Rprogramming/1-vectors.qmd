@@ -1,0 +1,224 @@
+---
+title: "Introduction to R Programming"
+author: "Yulia Iakovleva"
+format: html
+editor: visual
+---
+
+# Data Structures in R
+
+## Vectors
+
+Vectors come in two flavours: **atomic vectors** and **lists**. They differ in terms of their elements' types: for atomic vectors, all elements must have the same type; for lists, elements can have different types.
+
+### Atomic Vectors
+
+-   A vector is the most basic data structure in R.
+
+-   More complex structures (matrix, list, factor, data frame) are based on vectors.
+
+-   Vectorization is a key concept of the language.
+
+### Definition of Atomic Vector
+
+-   A vector is an indexed set of data of the same type.
+
+-   R does not distinguish between scalar and vector values; that is, a scalar is a vector of length 1.
+
+-   Indexing of vectors starts from one (not zero!).
+
+-   To create a vector, you can use the `vector` function.
+
+```{r}
+x <- vector(length = 2)
+x[1] <- 5
+x[2] <- 8
+x
+```
+
+### How to Create Atomic Vector
+
+#### Combine Function
+
+Instead of vector you can use combine `c` function:
+
+```{r}
+x <- c(5, 8)
+x
+```
+
+The function `c` can be nested and accept variables:
+
+```{r}
+y <- c(x, 1, c(3, 4), x, NA)
+y
+```
+
+#### Colon Operator
+
+Colon operator creates the series of numbers in sequence for a vector (numerical sequences with a step of 1 only).
+
+```{r}
+5:9
+3:-1
+```
+
+#### Function `seq`
+
+For more complicated sequences use `seq` function:
+
+```{r}
+seq(1, 2, by = 0.25)
+seq(3, 4, length = 6)
+```
+
+#### Function `rep`
+
+To replicate or repeat elements in a vector or a sequence.
+
+```{r}
+rep(1:3, times = 3)
+rep(1:3, each = 2)
+rep(1:3, length = 4)
+```
+
+### Types of Atomic Vectors in R
+
+All elements of atomic vectors must have the same type:
+
+-   Logical
+
+-   Integer
+
+-   Numeric (integer, double)
+
+-   Character
+
+-   ...
+
+#### Get Vector Type
+
+To determine the type of a vector, there are functions `typeof` and `is.*` (where `*` represents any of the types).
+
+```{r}
+text <- c("Lorem", "ipsum", "dolor", "sit", "amet")
+typeof(text)
+is.numeric(text)
+```
+
+#### Coercion
+
+For atomic vectors, type is a property of the entire vector: all elements must be the same type. When you attempt to combine different types they will be coerced in a fixed order: `character → double → integer → logical`.
+
+For example, combining a character and an integer yields a character:
+
+```{r}
+c("a", 1)
+```
+
+Test your knowledge of the vector coercion rules by predicting the output of the following uses of `c()`:
+
+```{r}
+c(1, FALSE)
+c(2, "a", 1)
+c(TRUE, 1L)
+```
+
+### Length of Vector
+
+```{r}
+x <- 1:100
+length(x)
+```
+
+### Named Vectors
+
+Elements of vectors could be named:
+
+```{r}
+a <- c(uno = 1, dos = 2, "universal answer" = 42, 99)
+names(a)
+```
+
+## Operations on Vectors
+
+You can do both arithmetical and logical. Operations of vectors are performed member-by-member, i.e., *memberwise*.
+
+```{r}
+1:3 + c(-1, 2, 0)
+```
+
+```{r}
+1:3 * c(-1, 2, 0)
+```
+
+```{r}
+c(TRUE, TRUE, TRUE) & c(0, 1, 999)
+```
+
+### Exercise
+
+The results are different. Why?
+
+```{r}
+c(T, F) + c(0, 1)
+c(T, F) & c(0, 1)
+```
+
+## Recycling
+
+When applying an operation to two vectors that requires them to be the same length, R automatically *recycles*, or repeats, the shorter one, until it is long enough to match the longer one.
+
+## Accessing Vectors
+
+Get elements of vector from 2d to 5th:
+
+```{r}
+x <- 1:10
+x[2:5]
+```
+
+Filtering:
+
+```{r}
+x[x > 4]
+```
+
+## Lists
+
+-   A list is an indexed structure.
+
+-   They are typically used to store data of **varying lengths** or **different types**.
+
+-   Lists are created using the **`list`** function.
+
+## For Loop vs Vectorization
+
+In R, for loops are generally slower than vectorized operations because of the way R is designed and optimized for vectorized operations. Here are some key reasons why for loops can be slower compared to vectorization in R:
+
+-   **Internal Optimization**: R is an interpreted language, and it has been optimized for vectorized operations.
+
+-   **Function Call Overhead**: In R, function calls can be relatively expensive in terms of performance. When you use a for loop to iterate over elements and perform a simple operation on each element, you are making multiple function calls within the loop (e.g., accessing and modifying elements). This overhead can slow down the execution of the loop.
+
+-   **Memory Allocation**: Vectorized operations in R often require less memory allocation compared to for loops. When you use a for loop to build a result iteratively, R may need to allocate memory for each iteration, which can be less efficient than allocating memory for an entire vector in one go.
+
+-   **Ease of Parallelism**: Vectorized operations in R are more conducive to parallelism. Many modern CPUs have multiple cores, and R can take advantage of this by parallelizing vectorized operations. In contrast, for loops are typically executed sequentially, making it harder to utilize multiple CPU cores effectively.
+
+-   **Optimized Libraries**: R has many optimized libraries and packages that are designed to work with vectors and matrices efficiently. These libraries often provide vectorized functions that can perform complex operations on large datasets much faster than equivalent for loops.
+
+```{r}
+v <- 1:1e5
+system.time({
+  x <- 0
+  for (i in v) x[i] <- sqrt(v[i])
+})
+```
+
+```{r}
+system.time({
+  y <- sqrt(v)
+})
+identical(x, y)
+```
+
+⚠️ Don't use for loop on large data. Use vectorization approach instead.
