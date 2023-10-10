@@ -244,7 +244,7 @@ l3$name
 
 Single Brackets
 
--    Follow vector indexing rules
+-   Follow vector indexing rules
 
 -   Returned value is sublist
 
@@ -273,7 +273,19 @@ The same you can do to replace existing value in list.
 
 ## Apply Family Functions
 
-TBD
+The `apply()` family pertains to the R base package and is populated with functions to manipulate slices of data from matrices, arrays, lists and dataframes in a repetitive way. These functions allow crossing the data in a number of ways and avoid explicit use of loop constructs. They act on an input list, matrix or array and apply a named function with one or several optional arguments.
+
+Example:
+
+```{r}
+l <- list(A = c(56, 12, 57, 24), B = c(89, 12, 64, 18, 65, 76))
+
+lapply(l,                           # List
+       quantile,                    # Applied function
+       probs = c(0.25, 0.5, 0.75))  # Additional argument of the quantile function
+```
+
+However, it is considered legacy functionality and should not be used for new code. Instead, it is recommended to use the `purrr` package for all looping in R. The `purrr` package provides a consistent syntax for working with functions that take multiple inputs and outputs, making it easier to write and read code. Additionally, purrr offers a suite of functions that are optimized for modern computing environments, making it faster and more efficient than the Apply Family. Overall, while the R Apply Family may still work for some applications, it is advisable to use the purrr package for all new R projects.
 
 ## For Loop vs Vectorization
 
