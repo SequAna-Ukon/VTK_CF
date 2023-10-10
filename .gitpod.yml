@@ -15,6 +15,7 @@ tasks:
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           /workspace/mambaforge/bin/mamba init bash
           source ${HOME}/.bashrc
+          python -m http.server 8000
     - name: Install R
       command: |
           cd /workspace
@@ -41,10 +42,6 @@ tasks:
           rm -rf ref.tar.xz
           
 workspaceLocation: "/workspace"
-
-tasks:
-    - name: Start web server
-      init: python -m http.server 8000
 
 ports:
     - port: 8000
