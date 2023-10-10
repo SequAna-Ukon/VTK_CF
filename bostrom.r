@@ -18,7 +18,7 @@ head(tx2gene)
 
 
 # Load the meta information sample dataframe 
-samples = read.csv("/home/VTK/bostrom/bostrom_meta.csv", header=TRUE)
+samples = read.csv("bostrom_meta.csv", header=TRUE)
 
 # We're actually only interested in HeLa-fucci cells
 # Filter out the U20S cells so that we only carry the HeLa cells on in the analysis
