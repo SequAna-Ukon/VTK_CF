@@ -192,6 +192,89 @@ x[x > 4]
 
 -   Lists are created using the **`list`** function.
 
+How to create list:
+
+```{r}
+list(1:10)
+```
+
+It might be nested or recursive:
+
+```{r}
+list(list(1, 2, 3), c("a", "b"), "ATGCACA")
+```
+
+As vectors list could be named:
+
+```{r}
+l1 <- list(name = "john", salary = 1000)
+l2 <- list(has_car = TRUE, car = "lamborghini")
+```
+
+List could be also concatenated:
+
+```{r}
+l3 <- c(l1, l2)
+```
+
+### Accessing List
+
+#### Subset List
+
+```{r}
+l3[1]
+```
+
+#### Get the Single Element
+
+```{r}
+l3[[1]]
+l3[["name"]]
+```
+
+#### Dollar Sign Operator
+
+The Dollar `$` sign in R is a special operator that is used to access the List or DataFrame. Similar to bracket `[]` notation, you can use `$` sign to access, add, update and delete variables from list and columns from DataFrame.
+
+```{r}
+l3$name
+```
+
+#### Summary
+
+Single Brackets
+
+-    Follow vector indexing rules
+
+-   Returned value is sublist
+
+Double Brackets
+
+-   Index number or its full name
+
+-   Returned value is list element (atomic vector)
+
+Dollar Sign
+
+-   We can acess by partial name of the element
+
+-   Returned value is list element (atomic vector)
+
+### Replace or Add Element to List
+
+To add new element with "company" name and "Big Industry" value:
+
+```{r}
+l3$company <- "Big Undustry"
+l3
+```
+
+The same you can do to replace existing value in list.
+
+## Apply Family Functions
+
+TBD
+
 ## For Loop vs Vectorization
 
 In R, for loops are generally slower than vectorized operations because of the way R is designed and optimized for vectorized operations. Here are some key reasons why for loops can be slower compared to vectorization in R:
