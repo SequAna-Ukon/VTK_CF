@@ -51,7 +51,21 @@ editor: visual
 
 -   RStudio (IDE): <https://www.rstudio.com>
 
--   VS Code (with additional Extention): <https://code.visualstudio.com/>
+-   VS Code (with additional extentions): <https://code.visualstudio.com/>
+
+When you are working in R you should keep in mind what is your current working directory where your files are looking for.
+
+To check current working directory:
+
+```{r}
+getwd()
+```
+
+To set working directory:
+
+```{r}
+setwd() # you should specify the path to dir
+```
 
 # Basics
 

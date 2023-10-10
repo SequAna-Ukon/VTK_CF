@@ -1,0 +1,249 @@
+---
+title: "Introduction to R Programming"
+author: "Yulia Iakovleva"
+format: html
+editor: visual
+---
+
+# Data Frames in R
+
+## What is Data Frame?
+
+-   Two-dimensional table with data (like Excel Spreadsheet or SQL table).
+
+-   The standard way of storing data in the "observations/variables" format: rows correspond to observations, columns correspond to variables.
+
+-   Data frame inherits properties from both a matrix (rectangular shape) and a list (variables can be of different types).
+
+More about R Data Frames see [here](https://www.geeksforgeeks.org/r-data-frames/).
+
+## How to Create
+
+```{r}
+df <- data.frame(
+  x = 1:4,
+  y = LETTERS[1:4],
+  z = c(T, F))
+
+df
+```
+
+## How to Explore
+
+In R there are many built-in data sets that we can use for our exercises.
+
+To explore the variety of data set, you can call the `data()` function.
+
+```{r}
+data()
+```
+
+Today we will work with `mtcars` data set. To get more about it, get help:
+
+```{r}
+?mtcars
+```
+
+Get the first part of data (by default the first 6 rows):
+
+```{r}
+head(mtcars)
+```
+
+Get data set structure
+
+```{r}
+str(mtcars)
+```
+
+Get row names and column names:
+
+```{r}
+rownames(mtcars)
+colnames(mtcars)
+```
+
+Dimensions
+
+```{r}
+# Get the number of columns
+rownames(mtcars)
+# Get the numbe of raws
+colnames(mtcars)
+# Get dimentions
+dim(mtcars)
+```
+
+## Data Frame Manipulations
+
+### Acceding Data
+
+Accessing data frames is pretty similar to accessing atomic vectors or list.
+
+```{r}
+mtcars[1:10, 1:5]
+```
+
+### Filtering
+
+By conditions
+
+```{r}
+mtcars[mtcars$mpg > 20, ]
+```
+
+It's possible to include multiple conditions:
+
+```{r}
+mtcars[(mtcars$cyl > 4) & (mtcars$hp > 200), ]
+```
+
+You can also use `subset` function to filter your data frame or select specific columns:
+
+```{r}
+subset(mtcars, gear == 4, select = c(mpg, cyl, gear))
+```
+
+### Combining Data Frames
+
+Functions `rbind` and `cbind` built-in functions.
+
+#### Combine Rows
+
+```{r}
+rbind(
+  df,
+  data.frame(
+    x = 5:6,
+    y = c("K", "Z"),
+    z = TRUE,
+    row.names = c("Kappa", "Zulu")
+  )
+)
+```
+
+#### Combine Columns
+
+```{r}
+cbind(
+  df,
+  data.frame(
+    season = c("Summer", "Autumn", "Winter", "Spring"),
+    temp = c(20, 5, -10, 5)
+  )
+)
+```
+
+### Merge by Column
+
+```{r}
+merge(
+  df,
+  data.frame(
+    x = c(3, 2, 6, 1),
+    salary = c(100, 1000, 300, 500)
+  ),
+  by = "x" # specify by which column do you want to merge
+)
+```
+
+## Data Pre-processing Workflow
+
+### Workflow Stages
+
+-   Import into a data frame
+
+-   Cleaning values, checking types
+
+-   Working with strings: names, character variables, factors
+
+-   Missing values: identification, handling method
+
+-   Manipulating variables: transformation, creation, deletion
+
+-   Calculating descriptive statistics
+
+-   Data visualization
+
+-   Export
+
+### Reading Data
+
+Main function is [read.table](https://www.geeksforgeeks.org/reading-contents-of-a-text-file-in-r-programming-read-table-function/).
+
+-   **file** file name
+
+-   **header** presence or absence of a header in the first row
+
+-   **sep** value separator (usually we have CSV or TSV)
+
+-   **dec** decimal point
+
+-   **quote** characters denoting quotes (for string type)
+
+-   **na.strings** strings encoding missing values
+
+-   **colClasses** column types (for performance and specifying type: character, factor, date/time, etc.)
+
+-   **comment.char** character denoting a comment
+
+-   **skip** number of lines to skip from the beginning of the file
+
+See more for details:
+
+```{r}
+?read.table
+```
+
+Functions `read.csv`, `read.csv2`, `read.delim`, and `read.delim2` are wrappers around `read.table` with default settings.
+
+Summary on how to read different types of data:
+
+-   For Excel Spreadsheets with [readxl](https://readxl.tidyverse.org/).
+
+-   Read CSV / TSV Files with [read.csv](https://www.geeksforgeeks.org/read-contents-of-a-csv-file-in-r-programming-read-csv-function/).
+
+-   For more complex text data [read.table](https://www.geeksforgeeks.org/reading-contents-of-a-text-file-in-r-programming-read-table-function/).
+
+### **Cleaning Values, Type Checking**
+
+Variable types that can easily lead to errors during import:
+
+-   Numeric types become character due to missing values, marked not as `NA`: `na.strings = c("NA", "Not Available", "Missing")`
+
+-   Numeric types become character due to incorrectly specified separators or decimal points: `sep = ","`, `dec = "."`
+
+-   Numeric types become character due to quotes, accompanying text, or comments: `quote`, `comment.char`, `skip`
+
+-   String types become factors or character instead of necessary type of vector: `as.character`, `as.factor`
+
+-   Date/time types remain character: `as.POSIXct`, `as.POSIXlt`, `as.Date`
+
+Functions `str`, `summary`, `head`, and `tail` can help determine if everything is in order.
+
+### **Working with Variables**
+
+-   Functions `complete.cases` and `na.omit` for removing observations with missing values:
+    `df[complete.cases(df), ]` or `na.omit(df)`
+
+-   Replacing NA with certain values can be potentially risky:
+
+    -   Filling with the mean can introduce bias into the data.
+
+    -   Filling with zeros is generally incorrect in most cases.
+
+### **Export**
+
+-   `write.table`, `write.csv`, and `write.csv2` are almost identical to the import functions.
+
+-   If the data array is large, it's best to separate the data pre-processing stage into:
+
+    -   a separate .R file
+
+    -   a separate text file with pre-processed ("clean") data.
+
+## Further Reading
+
+-   I really recommend to have a look at [dplyr](https://dplyr.tidyverse.org/) R package. It is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges.
+
+-   [Advanced R](https://adv-r.hadley.nz/) book by Hadley Wickham.
