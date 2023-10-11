@@ -106,6 +106,18 @@ typeof(text)
 is.numeric(text)
 ```
 
+#### Factors
+
+Factors are data structures that are implemented to categorize the data or represent categorical data and store it on multiple levels.
+
+```{r}
+x <- c("Man", "Male", "Man", "Lady", "Female")
+## Map from 4 different values to only two levels:
+(xf <- factor(x, levels = c("Male", "Man" , "Lady",   "Female"),
+                 labels = c("Male", "Male", "Female", "Female")))
+xf
+```
+
 #### Coercion
 
 For atomic vectors, type is a property of the entire vector: all elements must be the same type. When you attempt to combine different types they will be coerced in a fixed order: `character → double → integer → logical`.
@@ -168,6 +180,13 @@ c(T, F) & c(0, 1)
 ## Recycling
 
 When applying an operation to two vectors that requires them to be the same length, R automatically *recycles*, or repeats, the shorter one, until it is long enough to match the longer one.
+
+```{r}
+vec1 <- 1
+vec2 <- c(1, 2, 3)
+
+vec1 + vec2
+```
 
 ## Accessing Vectors
 

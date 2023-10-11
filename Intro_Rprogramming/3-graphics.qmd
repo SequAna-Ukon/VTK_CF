@@ -1,0 +1,259 @@
+---
+title: "Introduction to R Programming"
+author: "Yulia Iakovleva"
+format: html
+editor: visual
+---
+
+# Graphics in R
+
+## Base Graphics
+
+R has great support for plotting and customizing plots by default. This basic capability for plotting in R is referred to as "base graphics" or "R base graphics".
+
+### Histogram
+
+```{r}
+# Randomly sample 50 points from normal distribution
+x <- rnorm(50)
+hist(x)
+```
+
+Customize your plot:
+
+```{r}
+hist(x, main="Hello Histogram", col="blue")
+```
+
+### Scatter Plot
+
+```{r}
+y <- rnorm(x)
+
+plot(x, y,
+     main="Scatterplot of random samples",
+     ylab="y values", xlab="x values")
+```
+
+### Boxplot
+
+```{r}
+boxplot(x, y,
+        main="Boxplots of random samples")
+```
+
+Basic graphics is good for quick plotting, but it is less pretty and flexible.
+
+## Grammar of Graphics: ggplot2
+
+It's a gold standard for making plots in R.
+
+### Why ggplot2?
+
+-   Readable code
+
+-   Extreme flexibility
+
+-   Publication quality of images
+
+-   It's popular. Huge friendly community
+
+-   Good documentation, books, user support
+
+Grammar of Graphics includes several layers on which it is governed. The layers are as follows:
+
+-   **Data:** The element is the data set itself
+
+-   **Aesthetics:** The data is to map onto the Aesthetics attributes such as x-axis, y-axis, color, fill, size, labels, alpha, shape, line width, line type
+
+-   **Geometrics:** How our data being displayed using point, line, histogram, bar, boxplot
+
+-   **Facets:** It displays the subset of the data using Columns and rows
+
+-   **Statistics:** Binning, smoothing, descriptive, intermediate
+
+-   **Coordinates:** the space between data and display using Cartesian, fixed, polar, limits
+
+-   **Themes:** Non-data link
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20211207130952/NikhilImageedit1.jpg){fig-align="center" width="70%"}
+
+## Get Started with ggplot2
+
+### Get ggplot2
+
+```{r}
+# Installing the package
+install.packages("ggplot2")
+
+# Load package
+library(ggplot2)
+```
+
+### Iris Data
+
+We will use classical [Fisher's Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) for our visualization.
+
+```{r}
+?iris
+```
+
+### Plotting
+
+#### Data Layer
+
+In the data Layer we define the source of the information to be visualize. Add data layer with `ggplot` function and `labs` to set the title:
+
+```{r}
+ggplot(data = iris) +
+  labs(title = "Iris flower data set")
+```
+
+#### Aesthetic Layer
+
+Here we will display and map data set into certain aesthetics. Add aesthetic layer with `aes` function:
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width) +
+  labs(title = "Iris flower data set")
+```
+
+#### Geometric Layer
+
+In geometric layer control the essential elements, see how our data being displayed using point, line, histogram, bar, boxplot. Add geometric layer with `geom_point` function. We also want to specify proper labels for **x** and **y** axis within `labs`.
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width) +
+  geom_point() + 
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+We want to slightly customize our plot and change the `size` of dots and use `color` and `shape` to distinguish different species:
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) + 
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+#### Facet Layer
+
+It is used to split the data up into subsets of the entire data set and it allows the subsets to be visualized on the same plot.
+
+Here we separate rows according to `Species`.
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length, shape = Species) +
+  # We can also use show.legend = FALSE to hide the legend
+  geom_point(size = 3) +
+  # Horizontally
+  # facet_grid(Species ~ .) + 
+  # Vertically
+  facet_grid( ~ Species) + 
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+#### Static Layer
+
+In this layer, we transform our data using binning, smoothing, descriptive, intermediate.
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) +
+  stat_smooth(method = lm, col = "red") +
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+#### Coordinates Layer
+
+In these layers, data coordinates are mapped together to the mentioned plane of the graphic and we adjust the axis and changes the spacing of displayed data with Control plot dimensions.
+
+Zooming into a plot with `coord_cartesian()`:
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) +
+  # Limit displayed values in Sepal.Width between 2.5 and 4.0
+  coord_cartesian(ylim = c(2.5, 4.0)) +
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+#### Theme Layer
+
+This layer controls the finer points of display like the font size and background color properties.
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) +
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width") +
+  theme_minimal()
+```
+
+### Save Plots
+
+To save and extract plots in R, you can use the `ggsave` function. Here's an example of how to save plots:
+
+```{r}
+plot <- 
+  ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) + 
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width")
+
+ggsave("my_plot.pdf", plot)
+```
+
+## RColorBrewer
+
+RColorBrewer is an R package library that offers a variety of color palettes to use while making different types of plots. Colors impact the way we visualize data. If we have to make a data standout or we want a color-blind person to visualize the data as well as a normal person we have to use the right color palette. RColorBrewer does exactly that by compiling the right colors in palettes for a variety of use cases.
+
+```{r}
+library(RColorBrewer)
+display.brewer.all()
+```
+
+### ColorBlindness filter
+
+In the above information, there is also a column for colorblindness information. This column tells whether a colorblind person can see all the colors of the palette or not. So, we can use this information to get all the color palettes suitable for colorblind people. We can view all such palettes using:
+
+```{r}
+
+display.brewer.all(colorblindFriendly=TRUE)
+```
+
+### How to Use
+
+```{r}
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Sepal.Width, color = Species, shape = Species) +
+  geom_point(size = 3) + 
+  labs(title = "Iris flower data set",
+       x = "Sepal Length",
+       y = "Sepal Width") +
+  scale_color_brewer(palette = "Set2") # colorblind-friendly palette
+```
+
+## References
+
+-   [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) book by Hadley Wickham.
