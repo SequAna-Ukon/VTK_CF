@@ -37,7 +37,7 @@ tasks:
     - name: retrieve references data
       command: |
           cd /workspace
-          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/jkW6m7BCXZtHxKs/download?file=filename.tar.xz
+          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/dmbJtA8MAAtgmH8/download?file=filename.tar.xz
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
