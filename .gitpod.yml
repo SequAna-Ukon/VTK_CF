@@ -1,4 +1,4 @@
-image: rocker/tidyverse:latest
+image: greenjune/vtk2023
 
 tasks:
 
