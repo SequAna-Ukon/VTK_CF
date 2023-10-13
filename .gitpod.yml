@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: greenjune/vtk2023
 
 tasks:
 
@@ -16,11 +15,6 @@ tasks:
           /workspace/mambaforge/bin/mamba init bash
           source ${HOME}/.bashrc
           python -m http.server 8000
-    - name: Install R
-      command: |
-          cd /workspace
-          sudo apt-get update
-          sudo apt-get install -y r-base
      
     - name: Install Nextflow & nf core
       command: |
@@ -37,7 +31,7 @@ tasks:
     - name: retrieve references data
       command: |
           cd /workspace
-          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/jkW6m7BCXZtHxKs/download?file=filename.tar.xz
+          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/dmbJtA8MAAtgmH8/download?file=filename.tar.xz
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
@@ -46,3 +40,14 @@ workspaceLocation: "/workspace"
 ports:
     - port: 8000
       onOpen: open-preview
+
+vscode:
+  extensions: # based on nf-core.nf-core-extensionpack
+    - codezombiech.gitignore # Language support for .gitignore files
+    - esbenp.prettier-vscode # Markdown/CommonMark linting and style checking for Visual Studio Code
+    - mechatroner.rainbow-csv # Highlight columns in csv files in different colors
+    - nextflow.nextflow # Nextflow syntax highlighting
+    - oderwat.indent-rainbow # Highlight indentation level
+    - streetsidesoftware.code-spell-checker # Spelling checker for source code
+    - REditorSupport.r
+    - quarto.quarto
