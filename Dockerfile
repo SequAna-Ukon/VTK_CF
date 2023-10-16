@@ -4,9 +4,11 @@ FROM rocker/tidyverse:latest
 # Update the package list and install software using apt-get
 RUN apt-get update && \
     apt-get install -y \
+        less \
         libghc-bzlib-dev \
         curl \
         python3-pip \
+        openjdk-11-jdk \
         fastp \
         kallisto
 
