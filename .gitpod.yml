@@ -34,7 +34,7 @@ tasks:
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
-    - name:  
+    - name: port
       command: |
           python -m http.server 8000
 
