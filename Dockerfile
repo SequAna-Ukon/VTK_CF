@@ -1,17 +1,21 @@
+# Use an image from the rocker/tidyverse repository
 FROM rocker/tidyverse:latest
 
+# Update the package list and install software using apt-get
 RUN apt-get update && \
     apt-get install -y \
+        libghc-bzlib-dev \
         fastp \
         kallisto
 
-# For Quarto VS Code Extention
+# Install the 'languageserver' package using R
 RUN R -e "install.packages('languageserver')"
 
-# For Bioconductor
+# Install the 'BiocManager' package using R
 RUN R -e "install.packages('BiocManager')"
 
-# For DiffExpr Analysis
-RUN R -e "BiocManager::install(c('RMariaDB', 'tximport', 'DESeq2', 'pheatmap', 'vsn', 'matrixStats', 'GenomicFeatures'))"
+# Install Bioconductor packages using BiocManager
+RUN R -e "BiocManager::install(c('RMariaDB', 'tximport', 'DESeq2', 'pheatmap', 'vsn', 'matrixStats', 'GenomicFeatures'), ask = FALSE, force = TRUE, dependencies = TRUE)"
 
+# Define the command to run when the container starts
 CMD ["/bin/bash"]
