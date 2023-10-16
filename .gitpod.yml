@@ -34,6 +34,9 @@ tasks:
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
+ports:
+    - port: 8000
+      onOpen: open-preview   
 
 workspaceLocation: "/workspace"
 
