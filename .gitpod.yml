@@ -34,11 +34,16 @@ tasks:
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
-workspaceLocation: "/workspace"
+    - name:  
+      command: |
+          python -m http.server 8000
+
 
 ports:
     - port: 8000
       onOpen: open-preview
+
+workspaceLocation: "/workspace"
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
