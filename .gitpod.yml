@@ -14,7 +14,7 @@ tasks:
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           /workspace/mambaforge/bin/mamba init bash
           source ${HOME}/.bashrc
-     
+          python -m http.server 8000
     - name: Install Nextflow & nf core
       command: |
           cd /workspace
@@ -34,14 +34,6 @@ tasks:
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
           
-    - name: port
-      command: |
-          python -m http.server 8000
-
-
-ports:
-    - port: 8000
-      onOpen: open-preview
 
 workspaceLocation: "/workspace"
 
