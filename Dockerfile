@@ -5,6 +5,8 @@ FROM rocker/tidyverse:latest
 RUN apt-get update && \
     apt-get install -y \
         libghc-bzlib-dev \
+        curl \
+        python3-pip \
         fastp \
         kallisto
 
