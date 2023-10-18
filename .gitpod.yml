@@ -15,17 +15,13 @@ tasks:
           /workspace/mambaforge/bin/mamba init bash
           source ${HOME}/.bashrc
           python -m http.server 8000
+
     - name: Install Nextflow & nf core
       command: |
           cd /workspace
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /bin/
           export PATH=/bin:$PATH
-    
-    - name: Install Nextflow & nf core
-      command: |
-          cd /workspace
-          pip install nf-core
 
     - name: retrieve references data
       command: |
