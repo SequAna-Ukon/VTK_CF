@@ -2,6 +2,11 @@ image: greenjune/vtk2023
 
 tasks:
 
+    - name: run
+      init: |
+          cd /workspace
+          apt-get update && sudo
+
     - name: install mamba 
       init: |
           cd /workspace
