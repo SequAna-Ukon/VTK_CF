@@ -15,14 +15,6 @@ tasks:
           /workspace/mambaforge/bin/mamba init bash
           source ${HOME}/.bashrc
           python -m http.server 8000
-
-    - name: retrieve references data
-      command: |
-          cd /workspace
-          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/tob7NGo8w2CZXAR/download?file=filename.tar.xz
-          tar -xf ref.tar.xz
-          rm -rf ref.tar.xz
-
     - name: Install Nextflow & nf core
       command: |
           cd /workspace
@@ -34,6 +26,13 @@ tasks:
       command: |
           cd /workspace
           pip install nf-core
+
+    - name: retrieve references data
+      command: |
+          cd /workspace
+          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/tob7NGo8w2CZXAR/download?file=filename.tar.xz
+          tar -xf ref.tar.xz
+          rm -rf ref.tar.xz
           
 ports:
     - port: 8000
