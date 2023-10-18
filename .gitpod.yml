@@ -16,13 +16,6 @@ tasks:
           source ${HOME}/.bashrc
           python -m http.server 8000
 
-    - name: Install Nextflow & nf core
-      command: |
-          cd /workspace
-          curl -s https://get.nextflow.io | bash
-          sudo mv nextflow /bin/
-          export PATH=/bin:$PATH
-
     - name: retrieve references data
       command: |
           cd /workspace
