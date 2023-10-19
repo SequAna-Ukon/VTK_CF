@@ -63,7 +63,7 @@ getwd()
 
 To set working directory:
 
-```{r}
+```{r eval=FALSE}
 setwd() # you should specify the path to dir
 ```
 
