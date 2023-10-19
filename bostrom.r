@@ -17,14 +17,24 @@ tx2gene <- AnnotationDbi::select(txdb, k, "GENEID", "TXNAME")
 head(tx2gene)
 
 
-# Load the meta information sample dataframe 
+# Load the meta information sample dataframe
+
+# For GitPod
+# samples = read.csv("/workspace/VTK2023/bostrom_meta.csv", header=TRUE)
+
+# For execution locally
 samples = read.csv("bostrom_meta.csv", header=TRUE)
 
 # Set cell_type, cell_cycle_stage and rep columns as factors
 samples = samples %>% mutate(cell_type = as.factor(cell_type), cell_cycle_stage = as.factor(cell_cycle_stage), rep = as.factor(rep))
 
 # Make a vector that contains the full paths to the abundance.h5 files
+
+# For GitPod
+# kallisto.base.dir = "/home/gitpod/kallisto_out"
 kallisto.base.dir = "kallisto_out"
+
+# For execution locally
 files <- file.path(kallisto.base.dir, samples$dir_name, "abundance.h5")
 
 # Verify that all the files are there
@@ -91,7 +101,7 @@ dds_counts = as.data.frame(assay(dds))
 dds_counts_w_av = dds_counts %>% dplyr::mutate(
     s_av=rowMeans(dplyr::select(., c(SRR6150372_HeLa_S_1, SRR6150373_HeLa_S_2, SRR6150374_HeLa_S_3))),
     g1_av=rowMeans(dplyr::select(., c(SRR6150369_HeLa_G1_1, SRR6150370_HeLa_G1_2, SRR6150371_HeLa_G1_3))),
-    g2_av=rowMeans(dplyr::select(., c(SRR6150375.combined_HeLa_G2_1, SRR6150378.combined_HeLa_G2_2, SRR6150381.combined_HeLa_G2_3)))
+    g2_av=rowMeans(dplyr::select(., c(SRR6150375_HeLa_G2_1, SRR6150378_HeLa_G2_2, SRR6150381_HeLa_G2_3)))
     )
 
 # Finally we want to filter down to just the average columns
