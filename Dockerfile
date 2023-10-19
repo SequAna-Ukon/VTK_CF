@@ -1,25 +1,35 @@
 # Use an image from the rocker/tidyverse repository
-FROM rocker/tidyverse:latest
+FROM gitpod/workspace-full
 
 # Update the package list and install software using apt-get
-RUN apt-get update && \
-    apt-get install -y \
-        less \
-        libghc-bzlib-dev \
-        curl \
-        python3-pip \
-        openjdk-11-jdk \
-        fastp \
-        kallisto
+RUN sudo apt-get update && \
+    sudo apt-get install -y \
+        # R environment
+        r-base \
+        # System libraries for R packages
+        libharfbuzz-dev \
+        libfribidi-dev \
+        libmariadb-dev
 
-# Install the 'languageserver' package using R
-RUN R -e "install.packages('languageserver')"
+# Create workspace
+WORKDIR /workspace
 
-# Install the 'BiocManager' package using R
-RUN R -e "install.packages('BiocManager')"
+# R Environment
+RUN sudo R -e "install.packages(c('languageserver', 'tidyverse', 'BiocManager'))"
+# Install Bioconductor and CRAN packages using BiocManager
+RUN sudo R -e "BiocManager::install(c('RMariaDB', 'tximport', 'DESeq2', 'pheatmap', 'vsn', 'matrixStats', 'GenomicFeatures'), ask = FALSE, force = TRUE, dependencies = TRUE)"
+RUN sudo R -e "install.packages('devtools')"
 
-# Install Bioconductor packages using BiocManager
-RUN R -e "BiocManager::install(c('RMariaDB', 'tximport', 'DESeq2', 'pheatmap', 'vsn', 'matrixStats', 'GenomicFeatures'), ask = FALSE, force = TRUE, dependencies = TRUE)"
+# Download and Install Quarto
+RUN sudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb && \
+    sudo apt-get install -y gdebi-core && \
+    sudo gdebi -n quarto-linux-amd64.deb && \
+    rm quarto-linux-amd64.deb
+# Modify the PATH variable
+ENV PATH=/opt/quarto/bin/tools:$PATH
+
+# Copy DESeq2 R Script to /workspace
+COPY kallisto_out /home/gitpod/kallisto_out
 
 # Define the command to run when the container starts
-CMD ["/bin/bash"]
+CMD ["sudo", "-s", "/bin/bash"]
