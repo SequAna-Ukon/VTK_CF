@@ -24,7 +24,7 @@ samples = read.csv("bostrom_meta.csv", header=TRUE)
 samples = samples %>% mutate(cell_type = as.factor(cell_type), cell_cycle_stage = as.factor(cell_cycle_stage), rep = as.factor(rep))
 
 # Make a vector that contains the full paths to the abundance.h5 files
-kallisto.base.dir = "/home/VTK/bostrom/kallisto_out"
+kallisto.base.dir = "kallisto_out"
 files <- file.path(kallisto.base.dir, samples$dir_name, "abundance.h5")
 
 # Verify that all the files are there
