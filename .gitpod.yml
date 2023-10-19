@@ -33,6 +33,10 @@ tasks:
           curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/tob7NGo8w2CZXAR/download?file=filename.tar.xz
           tar -xf ref.tar.xz
           rm -rf ref.tar.xz
+
+    - name: Make Pandoc available for VS Code Quarto extension
+      command: |
+          export PATH=/opt/quarto/bin/tools:$PATH
           
 ports:
     - port: 8000
