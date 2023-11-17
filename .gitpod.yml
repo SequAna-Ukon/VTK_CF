@@ -22,9 +22,10 @@ tasks:
 
     - name: retrieve references data
       command: |
-          curl -L -o bostrom/ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
-          tar -xf bostrom/ref.tar.gz
-          rm -rf bostrom/ref.tar.gz
+          cd bostrom/
+          curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
+          tar -xf ref.tar.gz
+          rm -rf ref.tar.gz
           
 ports:
     - port: 8000
