@@ -4,7 +4,6 @@ tasks:
 
     - name: install mamba 
       init: |
-          cd /workspace
           wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           source ${HOME}/.bashrc
@@ -12,28 +11,26 @@ tasks:
           python -m http.server 8000
     - name: Install Nextflow & nf core
       command: |
-          cd /workspace
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /bin/
           export PATH=/bin:$PATH
     
     - name: Install Nextflow & nf core
       command: |
-          cd /workspace
+          
           pip install nf-core
 
     - name: retrieve references data
       command: |
-          cd /workspace
-          curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
-          tar -xf ref.tar.gz
-          rm -rf ref.tar.gz
+          curl -L -o bostrom/ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
+          tar -xf bostrom/ref.tar.gz
+          rm -rf bostrom/ref.tar.gz
           
 ports:
     - port: 8000
       onOpen: open-preview   
 
-workspaceLocation: "/workspace"
+workspaceLocation: "/VTK2023"
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
