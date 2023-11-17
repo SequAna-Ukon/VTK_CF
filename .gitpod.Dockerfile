@@ -11,8 +11,6 @@ RUN sudo apt-get update && \
         libfribidi-dev \
         libmariadb-dev
 
-# Create workspace
-WORKDIR /workspace
 
 # R Environment
 RUN sudo R -e "install.packages(c('languageserver', 'tidyverse', 'BiocManager'))"
