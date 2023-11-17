@@ -5,7 +5,7 @@ tasks:
     - name: run
       init: |
           cd /workspace
-          apt-get update && sudo
+          #apt-get update && sudo
 
     - name: install mamba 
       init: |
