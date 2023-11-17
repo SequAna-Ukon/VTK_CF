@@ -13,7 +13,7 @@ tasks:
           wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           sudo /workspace/mambaforge/bin/mamba init bash
-          sudo source ${HOME}/.bashrc
+          source ${HOME}/.bashrc
           python -m http.server 8000
     - name: Install Nextflow & nf core
       command: |
@@ -30,9 +30,9 @@ tasks:
     - name: retrieve references data
       command: |
           cd /workspace
-          curl -L -o ref.tar.xz https://cloud.uni-konstanz.de/index.php/s/RkqRaB7FZnsJYXG=filename.tar.xz
-          tar -xf ref.tar.xz
-          rm -rf ref.tar.xz
+          curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/RkqRaB7FZnsJYXG=filename.tar.gz
+          tar -xf ref.tar.gz
+          rm -rf ref.tar.gz
           
 ports:
     - port: 8000
