@@ -7,7 +7,7 @@ tasks:
           wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           source ${HOME}/.bashrc
-          mambaforge/bin/mamba init bash
+          ../mambaforge/bin/mamba init bash
           python -m http.server 8000
     - name: Install Nextflow & nf core
       command: |
@@ -26,12 +26,12 @@ tasks:
           curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
           tar -xf ref.tar.gz
           rm -rf ref.tar.gz
+          cd ../
           
 ports:
     - port: 8000
       onOpen: open-preview   
 
-workspaceLocation: "/VTK2023"
 
 vscode:
   extensions: # based on nf-core.nf-core-extensionpack
