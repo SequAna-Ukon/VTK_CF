@@ -2,10 +2,6 @@ image: greenjune/vtk2023
 
 tasks:
 
-    - name: install dot command
-      init: |
-          sudo apt-get install graphviz
-
     - name: install mamba 
       command: |
           wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
