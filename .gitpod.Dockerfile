@@ -10,7 +10,8 @@ RUN sudo apt-get update && \
         libharfbuzz-dev \
         libfribidi-dev \
         libmariadb-dev
-
+# install do command for nextflow
+RUN sudo apt-get graphviz
 
 # R Environment
 RUN sudo R -e "install.packages(c('languageserver', 'tidyverse', 'BiocManager'))"
