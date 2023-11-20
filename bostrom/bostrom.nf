@@ -11,7 +11,7 @@ samples_ch = Channel.fromFilePairs("./raw_reads/fastq/*.fastq.gz", size: 1).map{
 process fastp {
     tag "${sample}"
     conda "fastp -c bioconda"
-    cpus 30
+    cpus 16
     publishDir "./fastp/", mode: "copy"
     input:
     tuple val(sample), path(read_1)
