@@ -18,7 +18,7 @@ process fastp {
 
     script:
     """
-    fastp -q 20 --thread ${task.cpus} -i $read_1 -o ${sample}.clean.fq.gz -h fastp.html ${sample}.fastp.html
+    fastp -q 20 --thread ${task.cpus} -i $read_1 -o ${sample}.clean.fq.gz -h ${sample}.fastp.html
     """
 }
 
