@@ -84,7 +84,7 @@ Grammar of Graphics includes several layers on which it is governed. The layers 
 
 ```{r}
 # Installing the package
-install.packages("ggplot2")
+# install.packages("ggplot2")
 
 # Load package
 library(ggplot2)

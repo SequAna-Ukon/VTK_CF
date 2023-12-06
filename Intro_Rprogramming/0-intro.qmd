@@ -321,7 +321,7 @@ installed.packages()
 
 ### From CRAN
 
-```{r}
+```{r, eval=FALSE}
 install.packages("ggplot2")
 ```
 
@@ -329,7 +329,7 @@ install.packages("ggplot2")
 
 First we need to install `BiocManager` R package from CRAN and then use `BiocManager` to install `DESeq2` from Bioconductor:
 
-```{r}
+```{r, eval=FALSE}
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
@@ -360,7 +360,7 @@ sessionInfo()
 
 Let's try to execute the following code:
 
-```{r}
+```{r, eval=FALSE}
 say('Hello', by = "cow")
 ```
 
