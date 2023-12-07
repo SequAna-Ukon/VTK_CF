@@ -6,7 +6,7 @@ example code associated with the analysis of the Böstrom dataset for the 2023 V
 
 nextflow.enable.dsl=2
 
-samples_ch = Channel.fromFilePairs("./raw_reads/fastq/*.fastq.gz", size: 1).map{[it[0], it[1][0]]}
+samples_ch = Channel.fromFilePairs("Reference/raw_reads/fastq/*.fastq.gz", size: 1).map{[it[0], it[1][0]]}
 
 process fastp {
     tag "${sample}"
