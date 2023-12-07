@@ -19,7 +19,14 @@ tasks:
       command: |
           
           pip install nf-core
-
+    - name: retrieve ena data
+      command: |
+          cd bostrom/
+          wget http://ftp.ebi.ac.uk/pub/databases/ena/tools/ena-file-downloader.zip
+          unzip -d ena ena-file-downloader.zip
+          while read i;do java -jar ena/ena-file-downloader.jar --accessions=$i --format=READS_FASTQ --location=../ --protocol=FTP --asperaLocation=null;done < ids.csv
+          rm -rf ena/ ena ena-file-downloader.zip
+          cd ../
     - name: retrieve references data
       command: |
           cd bostrom/
