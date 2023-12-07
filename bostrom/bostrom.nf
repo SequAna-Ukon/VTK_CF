@@ -27,7 +27,7 @@ process fastp {
 }
 
 workflow {
-    #input_ch = samples_ch
+    input_ch = samples_ch
     fastp(input_ch)
 }
 
