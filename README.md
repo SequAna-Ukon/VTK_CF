@@ -1,6 +1,6 @@
 # Advanced Technologies for the Life Sciences (VTK2023): Bioinformatics Practical
 This markdown document will cover all aspects of the bioinformatics
-practical related to the 2022 VTK Advanced Technologies for the Life Sciences.
+practical related to the 2023 VTK Advanced Technologies for the Life Sciences.
 
 # Introduction
 In this practical, we will process a bulk-RNA sequencing (RNA-seq) dataset
