@@ -1,4 +1,4 @@
-# Advanced Technologies for the Life Sciences (VTK2023): Bioinformatics Practical
+# Advanced Technologies for the Life Sciences (VTK): Bioinformatics Practical
 This markdown document will cover all aspects of the bioinformatics
 practical related to the 2023 VTK Advanced Technologies for the Life Sciences.
 
