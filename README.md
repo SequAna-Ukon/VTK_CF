@@ -24,7 +24,7 @@ Both papers have been uploaded to the ILLIAS system in `Publications/SequAna`
 It would be a good idea to familiarize yourself with the papers before starting the practical work.
 
 ## Location
-The practical will take place in room M739 from 09.00-16.30 on the 2-6th of December. It is currently unclear whether we will also have access to the room on the 9th of December.
+The practical will take place in room M739 from 09.00-16.30 on the 2-6th of December. 
 
 Abdoallah aka "Abdo", the current SequAna bioinformatician will be running the practical and will be there to assist you.
 
