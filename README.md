@@ -26,15 +26,10 @@ It would be a good idea to familiarize yourself with the papers before starting 
 ## Location
 The practical will take place in room M739 from 09.00-16.30 on the 2-6th of December. 
 
-Abdoallah aka "Abdo", the current SequAna bioinformatician will be running the practical and will be there to assist you.
+Abdoallah, aka "Abdo," the current SequAna bioinformatician, will run the practical and be there to assist you.
 
 ## Computing setup
-You'll need access to a computer so you can finish this practical. While M739 does contain computers that use your own laptops. Also, you could use to login to the
-SequAna computational server (where much of the work will occur) this is a very inconvenient way to work as your home directory is
-deleted after every session and it is not possible to install applications that use Graphical User Interfaces (GUI). However, we also already setted up an online cloud environment (Gitpod) for this practical but it has limited computing and storage resources.
-
-As such, it is strongly recommended that you bring a laptop with
-you to complete the practical. 
+You'll need access to a computer so you can finish this practical. While M739 does contain computers still you need to use your laptops. However, we also already set up an online cloud environment (Gitpod) for this practical but it has limited computing and storage resources. As such, it is strongly recommended that you bring a laptop with you to complete the practical. 
 
 # Objectives
 
@@ -63,7 +58,7 @@ resources if you wish to further your knowledge of the topic.
 If you find yourself ahead of the rest of the group, you can just work on whatever you like or take the time to look over the topics we've covered so far in more detail.
 
 # Structure of the practical
-The practical will be divided up by days (1-5). We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day. The 5th day can be used for the scRNA-seq practical as a bonus session.
+The practical will be divided up by 3-4 days. We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day. The 5th day can be used for the scRNA-seq practical as a bonus session.
 
 Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead take our time on the journey that reaches the final figures.
 
@@ -72,7 +67,7 @@ sourcing of reference material. I.e. good googling!
 
 As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
-But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's totally normal.
+But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's normal.
 
 Some packages take a long time to install so it's best to do this setup in advance. Then, we will install all requirements during the first two days while we introduce you to the bash and R scripting basics. 
 
