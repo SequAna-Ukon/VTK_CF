@@ -67,9 +67,9 @@ Dimensions
 
 ```{r}
 # Get the number of columns
-rownames(mtcars)
+nrow(mtcars)
 # Get the numbe of raws
-colnames(mtcars)
+ncol(mtcars)
 # Get dimentions
 dim(mtcars)
 ```
