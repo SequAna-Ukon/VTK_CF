@@ -118,24 +118,6 @@ x <- c("Man", "Male", "Man", "Lady", "Female")
 xf
 ```
 
-#### Coercion
-
-For atomic vectors, type is a property of the entire vector: all elements must be the same type. When you attempt to combine different types they will be coerced in a fixed order: `character → double → integer → logical`.
-
-For example, combining a character and an integer yields a character:
-
-```{r}
-c("a", 1)
-```
-
-Test your knowledge of the vector coercion rules by predicting the output of the following uses of `c()`:
-
-```{r}
-c(1, FALSE)
-c(2, "a", 1)
-c(TRUE, 1L)
-```
-
 ### Length of Vector
 
 ```{r}
