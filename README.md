@@ -1,6 +1,6 @@
-# Advanced Technologies for the Life Sciences (VTK): Bioinformatics Practical
+# Advanced Technologies for the Life Sciences (VTK) BIO-16100 : Bioinformatics Practical
 This markdown document will cover all aspects of the bioinformatics
-practical related to the 2023 VTK Advanced Technologies for the Life Sciences.
+practical related to the VTK Advanced Technologies for the Life Sciences course (BIO-16100).
 
 # Introduction
 In this practical, we will process a bulk-RNA sequencing (RNA-seq) dataset
