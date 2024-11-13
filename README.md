@@ -1,4 +1,4 @@
-# Advanced Technologies for the Life Sciences (VTK) BIO-16100 : Bioinformatics Practical
+# Advanced Technologies for the Life Sciences (VTK) [BIO-16100] : Bioinformatics Practical
 This markdown document will cover all aspects of the bioinformatics
 practical related to the VTK Advanced Technologies for the Life Sciences course (BIO-16100).
 
@@ -29,7 +29,7 @@ The practical will take place in room M739 from 09.00-16.30 on the 2-6th of Dece
 Abdoallah, aka "Abdo," the current SequAna bioinformatician, will run the practical and be there to assist you.
 
 ## Computing setup
-You'll need access to a computer so you can finish this practical. While M739 does contain computers still you need to use your laptops. However, we also already set up an online cloud environment (Gitpod) for this practical but it has limited computing and storage resources. As such, it is strongly recommended that you bring a laptop with you to complete the practical. 
+You'll need access to a computer so you can finish this practical. While M739 does contain computers still you need to use your laptops. However, we also already set up an online cloud environment (Gitpod) for the first part of this practical but it has limited computing and storage resources. So, we will use SequAna's server for the second part. As such, it is strongly recommended that you bring a laptop with you to complete the practical. 
 
 # Objectives
 
@@ -38,7 +38,7 @@ The main objective of this practical is to introduce you to the tools used by co
 The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 4 or 5 days!), nor to perfectly recreate the figures from the manuscript. The critical part is the journey, not the destination. Please feel free to take your time. Any proficiency gained in the techniques we cover 
 will likely be extremely valuable to you as a research scientist.
 
-To achieve this objective we will work with the sequencing data archived as part of the study mentioned above to recapitulate several of their key findings.
+To achieve this objective, we will use the sequencing data archived as part of the study mentioned above to recapitulate several of their key findings.
 
 In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
 
