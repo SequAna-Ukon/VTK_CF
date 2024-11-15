@@ -72,7 +72,6 @@ resLFC <- lfcShrink(dds, coef="cell_cycle_stage_S_vs_G1", type="apeglm")
 
 # Let's compare the shrinkage results
 plotMA(res, ylim=c(-2,2))
-ggsave("res_MA.png")
 plotMA(resLFC, ylim=c(-2,2))
 
 # Two forms of normalization to do the plotting with
