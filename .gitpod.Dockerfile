@@ -25,8 +25,10 @@ RUN sudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb && \
 # Modify the PATH variable
 ENV PATH=/opt/quarto/bin/tools:$PATH
 
-# Copy DESeq2 R Script to /workspace
-COPY kallisto_out /home/gitpod/kallisto_out
 
 # Define the command to run when the container starts
 CMD ["sudo", "-s", "/bin/bash"]
+
+# Copy DESeq2 R Script to /workspace
+#COPY kallisto_out /home/gitpod/kallisto_out
+
