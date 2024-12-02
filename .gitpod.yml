@@ -9,16 +9,16 @@ tasks:
           source ${HOME}/.bashrc
           ../mambaforge/bin/mamba init bash
           python -m http.server 8000
-    - name: Install Nextflow & nf core
-      command: |
-          curl -s https://get.nextflow.io | bash
-          sudo mv nextflow /bin/
-          export PATH=/bin:$PATH
+    #- name: Install Nextflow & nf core
+      #command: |
+          #curl -s https://get.nextflow.io | bash
+          #sudo mv nextflow /bin/
+          #export PATH=/bin:$PATH
     
-    - name: Install Nextflow & nf core
-      command: |
+    #- name: Install Nextflow & nf core
+      #command: |
           
-          pip install nf-core
+          #pip install nf-core
     #- name: retrieve ena data
       #command: |
           #cd bostrom/
@@ -27,17 +27,17 @@ tasks:
           #while read i;do java -jar ena/ena-file-downloader.jar --accessions=$i --format=READS_FASTQ --location=../ --protocol=FTP --asperaLocation=null;done < ids.csv
           #rm -rf ena/ ena ena-file-downloader.zip
           #cd ../
-    - name: retrieve references data
-      command: |
-          cd bostrom/
-          curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
-          tar -xf ref.tar.gz
-          rm -rf ref.tar.gz
-          cd ../
+    #- name: retrieve references data
+      #command: |
+          #cd bostrom/
+          #curl -L -o ref.tar.gz https://cloud.uni-konstanz.de/index.php/s/oRNt35g4sCJmttr/download
+          #tar -xf ref.tar.gz
+          #rm -rf ref.tar.gz
+          #cd ../
           
-ports:
-    - port: 8000
-      onOpen: open-preview   
+#ports:
+    #- port: 8000
+      #onOpen: open-preview   
 
 
 vscode:
