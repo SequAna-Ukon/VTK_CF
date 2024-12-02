@@ -8,7 +8,7 @@ tasks:
           bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
           source ${HOME}/.bashrc
           ../mambaforge/bin/mamba init bash
-          python -m http.server 8000
+          #python -m http.server 8000
     #- name: Install Nextflow & nf core
       #command: |
           #curl -s https://get.nextflow.io | bash
