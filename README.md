@@ -17,14 +17,14 @@ These are the two papers, we will be working with the first one only while the s
 transcriptomics reveals synchronization of developmental
 transcription factor networks in cancer cells. PLOS ONE.
 
-- scRNA-seq: [MacParland et al 2018](https://www.nature.com/articles/s41467-018-06318-7). Single-cell RNA sequencing of human liver reveals distinct intrahepatic macrophage populations. Nature Communications.
+- scRNA-seq: [MacParland et al 2018](https://www.nature.com/articles/s41467-018-06318-7). Single-cell RNA sequencing of the human liver reveals distinct intrahepatic macrophage populations. Nature Communications.
 
 Both papers have been uploaded to the ILLIAS system in `Publications/SequAna`
 
 It would be a good idea to familiarize yourself with the papers before starting the practical work.
 
 ## Location
-The practical will take place in room M739 from 09.00-16.30 on the 2-6th of December. 
+The practical will take place in room M739 from 09.30-16.30 on the 3-6th of December. 
 
 Abdoallah, aka "Abdo," the current SequAna bioinformatician, will run the practical and be there to assist you.
 
@@ -67,9 +67,9 @@ sourcing of reference material. I.e. good googling!
 
 As such throughout the 3/4 days, while you will be given a structure to follow,
 you will also be asked to work out how to do certain tasks on your own.
-But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new to you and may feel challenging - that's normal.
+But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new and may feel challenging - that's normal.
 
-Some packages take a long time to install so it's best to do this setup in advance. Then, we will install all requirements during the first two days while we introduce you to the bash and R scripting basics. 
+Some packages take a long time to install, so it's best to do this setup in advance. Then, during the first two days, we will install all requirements while we introduce you to the bash and R scripting basics. 
 
 Last but not least, Here are links to tutorial hand-outs for each practical session, Enjoy training.
 
