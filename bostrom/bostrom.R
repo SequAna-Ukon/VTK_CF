@@ -20,7 +20,7 @@ head(tx2gene)
 # Load the meta information sample dataframe
 
 # For GitPod
-# samples = read.csv("/workspace/VTK2023/bostrom_meta.csv", header=TRUE)
+# samples = read.csv("./bostrom_meta.csv", header=TRUE)
 
 # For execution locally
 samples = read.csv("bostrom_meta.csv", header=TRUE)
