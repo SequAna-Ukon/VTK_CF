@@ -6,6 +6,7 @@ example code associated with the analysis of the Böstrom dataset for the CF VTK
 
 nextflow.enable.dsl=2
 
+
 samples_ch = Channel.fromFilePairs("/home/bio16100/bostrom/Reference/raw_reads/fastq/*.fastq.gz", size: 1).map{[it[0], it[1][0]]}
 
 process fastp {
@@ -30,4 +31,3 @@ workflow {
     samples_ch.view()
     fastp(samples_ch)
 }
-
