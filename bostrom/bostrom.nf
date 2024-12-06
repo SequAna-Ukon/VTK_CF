@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 /*
-example code associated with the analysis of the Böstrom dataset for the 2023 VTK
+example code associated with the analysis of the Böstrom dataset for the CF VTK
 */
 
 nextflow.enable.dsl=2
