@@ -1,14 +1,13 @@
-# All R code associated with the processing of the böstrom data
 library(dplyr)
-library(tidyverse)
 library(GenomicFeatures)
-library(RMariaDB)
 library(stringr)
 library(tximport)
 library(DESeq2)
 library(pheatmap)
 library(vsn)
 library(matrixStats)
+library(VennDiagram)
+
 
 # Create a tx2gene file that is compatible with the reference genome
 txdb <- makeTxDbFromEnsembl("Homo sapiens", release=107)
@@ -20,10 +19,10 @@ head(tx2gene)
 # Load the meta information sample dataframe
 
 # For GitPod
-# samples = read.csv("./bostrom_meta.csv", header=TRUE)
+# samples = read.csv("/home/bio16100/bostrom/bostrom_meta.csv", header=TRUE)
 
 # For execution locally
-samples = read.csv("bostrom_meta.csv", header=TRUE)
+samples = read.csv("/home/bio16100/bostrom/bostrom_meta.csv", header=TRUE)
 
 # Set cell_type, cell_cycle_stage and rep columns as factors
 samples = samples %>% mutate(cell_type = as.factor(cell_type), cell_cycle_stage = as.factor(cell_cycle_stage), rep = as.factor(rep))
@@ -31,8 +30,8 @@ samples = samples %>% mutate(cell_type = as.factor(cell_type), cell_cycle_stage 
 # Make a vector that contains the full paths to the abundance.h5 files
 
 # For GitPod
-# kallisto.base.dir = "/home/gitpod/kallisto_out"
-kallisto.base.dir = "kallisto_out"
+# kallisto.base.dir = "/home/bio16100/bostrom/kallisto_out"
+kallisto.base.dir = "/home/bio16100/bostrom/kallisto_out"
 
 # For execution locally
 files <- file.path(kallisto.base.dir, samples$dir_name, "abundance.h5")
@@ -71,10 +70,15 @@ head(res_ordered_p_val)
 resLFC <- lfcShrink(dds, coef="cell_cycle_stage_S_vs_G1", type="apeglm")
 
 # Let's compare the shrinkage results
-plotMA(res, ylim=c(-2,2))
-plotMA(resLFC, ylim=c(-2,2))
+pdf("MAplot_res.pdf")
+plotMA(res, ylim=c(-2,2), main="MA plot (raw LFC)")
+dev.off()
 
-# Two forms of normalization to do the plotting with
+pdf("MAplot_resLFC.pdf")
+plotMA(resLFC, ylim=c(-2,2), main="MA plot (shrunken LFC)")
+dev.off()
+
+# Three forms of normalization to do the plotting with
 vsd <- vst(dds, blind=FALSE)
 rld <- rlog(dds, blind=FALSE)
 ntd <- normTransform(dds)
@@ -93,6 +97,40 @@ sig_genes_redundant = c(rownames(s1_g1_sig_res), rownames(s1_g2_sig_res), rownam
 length(sig_genes_redundant) # 4129
 sig_genes_unique = unique(sig_genes_redundant)
 length(sig_genes_unique) # 2677
+
+
+# Prepare lists
+s1_g1_genes <- rownames(s1_g1_sig_res)
+s1_g2_genes <- rownames(s1_g2_sig_res)
+g1_g2_genes <- rownames(g1_g2_sig_res)
+
+# Generate Venn diagram
+venn.plot <- venn.diagram(
+  x = list(
+    "S_vs_G1" = s1_g1_genes,
+    "S_vs_G2" = s1_g2_genes,
+    "G1_vs_G2" = g1_g2_genes
+  ),
+  filename = NULL,  # to keep in memory
+  fill = c("red", "blue", "green"),
+  alpha = 0.5,
+  cex = 1.5,
+  cat.cex = 1.2,
+  main = "DEGs across comparisons"
+)
+
+# Save Venn diagram to file
+pdf("DEGs_venn.pdf")
+grid.draw(venn.plot)
+dev.off()
+
+
+# Save redundant and unique lists
+write.table(sig_genes_redundant, "sig_genes_redundant.txt",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+write.table(sig_genes_unique, "sig_genes_unique.txt",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
 
 
 # Next we need to make a df where we have the average count by cell_cycle_stage
