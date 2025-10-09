@@ -11,7 +11,7 @@ to generate a selection of the analytical results presented in the paper associa
 [What is single-cell RNA-seq?](https://en.wikipedia.org/wiki/Single-cell_transcriptomics)
 
 ## The papers
-These are the two papers, we will be working with the first one only while the second one is for your further reading and as a bonus for whoever will manage to work on it:
+These are the two papers we will be working with, the first one only, while the second one is for your further reading and as a bonus for whoever manages to work on it:
 
 - Bulk RNA-seq: [Böstrom et al 2017](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188772). Comparative cell cycle
 transcriptomics reveals synchronization of developmental
@@ -29,7 +29,7 @@ The practical will take place in room M739 from 09.30-16.30 on the 3-6th of Dece
 Abdoallah, aka "Abdo," the current SequAna bioinformatician, will run the practical and be there to assist you.
 
 ## Computing setup
-You'll need access to a computer so you can finish this practical. While M739 does contain computers still you need to use your laptops. However, we also already set up an online cloud environment (Gitpod) for the first part of this practical but it has limited computing and storage resources. So, we will use SequAna's server for the second part. As such, it is strongly recommended that you bring a laptop with you to complete the practical. 
+You'll need access to a computer to complete this practical. While M739 does contain computers still you need to use your laptops. However, we also already set up an online cloud environment (Codespace) for the first part of this practical, but it has limited computing and storage resources. So, we will use SequAna's server for the second part. As such, it is strongly recommended that you bring a laptop with you to complete the practical. 
 
 # Objectives
 
