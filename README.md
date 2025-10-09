@@ -58,9 +58,9 @@ resources if you wish to further your knowledge of the topic.
 If you find yourself ahead of the rest of the group, you can just work on whatever you like or take the time to look over the topics we've covered so far in more detail.
 
 # Structure of the practical
-The practical will be divided up by 3-4 days. We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day. The 5th day can be used for the scRNA-seq practical as a bonus session.
+The practical will be divided into 3-4 days. We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day. The 5th day can be used for running the prcticle yourself and preparing the final report, or for the scRNA-seq practical as a bonus session.
 
-Each day we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead take our time on the journey that reaches the final figures.
+Each day, we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead take our time on the journey that reaches the final figures.
 
 One of the most essential skills in computation biology/informatics is the effective
 sourcing of reference material. I.e. good googling!
