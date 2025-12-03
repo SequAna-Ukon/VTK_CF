@@ -28,6 +28,5 @@ process fastp {
 }
 
 workflow {
-    samples_ch.view()
     fastp(samples_ch)
 }
