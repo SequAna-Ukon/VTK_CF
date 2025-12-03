@@ -12,7 +12,7 @@ samples_ch = Channel.fromFilePairs("/home/bio16100/bostrom/Reference/raw_reads/f
 process fastp {
     tag "${sample}"
     conda "fastp -c bioconda"
-    cpus 16
+    cpus 10
     publishDir "./fastp/", mode: "copy"
     input:
     tuple val(sample), path(read_1)
