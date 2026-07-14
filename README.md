@@ -73,4 +73,4 @@ Finally, below are the tutorial handouts for each practical session. We hope you
 - **Day 3:** [Functional Enrichment Analysis.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-3:-Functional-enrichment-analysis)
 - **Day 4:** [Containers and Workflow management systems.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-4:-Containers-and-Workflow-management-systems)
 - **Day 5:** Student project – completion of the RNA-seq analysis of cell apoptosis, preparation of final figures, and report writing.
-- **Bonus (Self-study):** [MacParland et al 2018](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-5:-MacParland-et-al-2018)
+- **Bonus (Self-study):** [MacParland et al 2018](https://github.com/SequAna-Ukon/VTK_CF/wiki/Bonus-(Self%E2%80%90study):-MacParland-et-al-2018)
