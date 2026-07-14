@@ -33,50 +33,44 @@ You'll need access to a computer to complete this practical. While M739 does con
 
 # Objectives
 
-The main objective of this practical is to introduce you to the tools used by computational biologists/bioinformaticians to generate meaningful results from sequencing data.
+The main objective of this practical course is to introduce you to the tools and computational approaches used by bioinformaticians to extract meaningful biological insights from high-throughput sequencing data.
 
-The objective of this course is not for you to become proficient or masterful of the techniques we will be covering (we have only 4 or 5 days!), nor to perfectly recreate the figures from the manuscript. The critical part is the journey, not the destination. Please feel free to take your time. Any proficiency gained in the techniques we cover 
-will likely be extremely valuable to you as a research scientist.
+The aim of this course is not for you to become an expert in the techniques we cover—we only have four to five days—nor is it to perfectly reproduce every figure from the selected publications. Instead, the focus is on understanding the analysis process and developing the practical skills needed to perform each step independently. The journey is more important than the destination, so take your time and focus on learning the concepts and reasoning behind each analysis. Any proficiency you gain in these techniques will be highly valuable throughout your research career.
 
-To achieve this objective, we will use the sequencing data archived as part of the study mentioned above to recapitulate several of their key findings.
+To achieve these objectives, we will use publicly available sequencing data from the selected studies to reproduce several of their key findings while learning the underlying computational methods.
 
-In doing so we will cover many broad informatic/bioinformatic techniques not limited to:
+Throughout the practical, we will cover a range of core computational biology and bioinformatics topics, including:
 
-- Working on the command line interface (CLI)
-- Using Conda environments to install programs and packages
-- Working with Docker images in Singularity
-- Working with core bioinformatic tools to perform:
-    - access to archived sequencing data
-    - sequencing pre-processing and quality control
-    - sequence analysis
-- R scripting to manipulate, analyze, and visualize data
-- Workflow management with Nextflow
+- Working in the Linux command-line interface (CLI)
+- Using Conda environments to install and manage software packages
+- Working with Docker containers through Singularity/Apptainer
+- Using core bioinformatics tools for:
+    - Accessing publicly archived sequencing data
+    - Sequence data preprocessing and quality control
+    - RNA-seq data analysis
+- R scripting for data manipulation, statistical analysis, and visualization
+- Workflow management using Nextflow
 
-I will provide resources for all topics we cover and you are encouraged to look at these
-resources if you wish to further your knowledge of the topic.
+Resources and reference materials will be provided for every topic covered during the course. You are encouraged to explore these materials further if you wish to deepen your understanding beyond the practical sessions.
 
-If you find yourself ahead of the rest of the group, you can just work on whatever you like or take the time to look over the topics we've covered so far in more detail.
+If you finish a session ahead of the rest of the group, feel free to continue exploring the provided resources, revisit previous exercises in greater depth, or work on your own analyses or research questions.
 
 # Structure of the practical
-The practical will be divided into 3-4 days. We'll hold the 5th day spare and see how we're getting on. We can be flexible with how or if we use the 5th day. The 5th day can be used for running the prcticle yourself and preparing the final report, or for the scRNA-seq practical as a bonus session.
+The practical course will be divided into 4 core training days, with Day 5 reserved as a flexible project day. This final day will allow everyone to complete their own RNA-seq analysis project on cell apoptosis, finalize any remaining analyses, prepare figures, and work on their final report. We can be flexible with how this day is used depending on the progress of the class.
 
-Each day, we will work towards our end goal of recapitulating the results of our chosen studies. But remember, our goal is to learn along the way, not to get to the end. I would instead take our time on the journey that reaches the final figures.
+Each day, we will work towards our overall goal of reproducing the key findings from selected published studies. However, the primary objective of this course is not simply to reach the final results, but to understand the analysis process and develop the computational skills required to perform each step independently. We will therefore take our time throughout the journey, focusing on the methods and reasoning behind each analysis.
 
-One of the most essential skills in computation biology/informatics is the effective
-sourcing of reference material. I.e. good googling!
+One of the most important skills in computational biology and bioinformatics is the ability to efficiently find and evaluate reference material—that is, developing effective literature searching and "Googling" skills. Throughout the course, you will be provided with a structured guide, but you will also be encouraged to discover how to perform certain tasks on your own. Don't worry if you get stuck—the SequAna bioinformatics team will be available throughout the practical sessions to provide guidance and support. Much of the material will be new and may seem challenging at first, and that is a normal part of the learning process.
 
-As such throughout the 3/4 days, while you will be given a structure to follow,
-you will also be asked to work out how to do certain tasks on your own.
-But don't worry, the SequAna bioinformatician will be there to help you when you get stuck. Much of what you're asked to do will be new and may feel challenging - that's normal.
+Some software packages require considerable time to install and configure, so we recommend completing as much of the setup as possible before the course begins. During the first two days, we will ensure that everyone has the required software installed while introducing the fundamentals of Bash and R scripting.
 
-Some packages take a long time to install, so it's best to do this setup in advance. Then, during the first two days, we will install all requirements while we introduce you to the bash and R scripting basics. 
-
-Last but not least, Here are links to tutorial hand-outs for each practical session, Enjoy training.
+Finally, below are the tutorial handouts for each practical session. We hope you enjoy the training!
 
 
-- DAY 1: [Installing programs bash scripting introduction.](https://github.com/SequAna-Ukon/VTK_CF/wiki/DAY-1:-Installing-programs-bash-scripting-introduction)
-- DAY 1: [R scripting (self-studying)](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-1-(BONUS):-R-scripting)
-- DAY 2: [Böstrom et al 2017](https://github.com/SequAna-Ukon/VTK_CF/wiki/DAY-2:-B%C3%B6strom-et-al-2017)
-- Day 3: [Functional Enrichment Analysis.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-3:-Functional-enrichment-analysis)
-- Day 4: [Containers and Workflow management systems.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-4:-Containers-and-Workflow-management-systems)
-- Day 5 (Bonus): [MacParland et al 2018](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-5:-MacParland-et-al-2018)
+- **DAY 1:** [Installing programs bash scripting introduction.](https://github.com/SequAna-Ukon/VTK_CF/wiki/DAY-1:-Installing-programs-bash-scripting-introduction)
+- **DAY 1:** [R scripting (self-studying)](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-1-(BONUS):-R-scripting)
+- **DAY 2:** [Böstrom et al 2017](https://github.com/SequAna-Ukon/VTK_CF/wiki/DAY-2:-B%C3%B6strom-et-al-2017)
+- **Day 3:** [Functional Enrichment Analysis.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-3:-Functional-enrichment-analysis)
+- **Day 4:** [Containers and Workflow management systems.](https://github.com/SequAna-Ukon/VTK_CF/wiki/Day-4:-Containers-and-Workflow-management-systems)
+- **Day 5:** Student project – completion of the RNA-seq analysis of cell apoptosis, preparation of final figures, and report writing.
+- **Bonus (Self-study):** [MacParland et al 2018](https://github.com/SequAna-Ukon/VTK2023/wiki/Day-5:-MacParland-et-al-2018)
