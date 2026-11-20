@@ -1,0 +1,10 @@
+{
+    "input": "/home/bio16100/bostrom/Reference/raw_reads/samplesheet/samplesheet.csv",
+    "outdir": "bostrom_nfcore",
+    "genome": "GRCh38",
+    "trimmer": "fastp",
+    "pseudo_aligner": "kallisto",
+    "kallisto_quant_fraglen": 200,
+    "kallisto_quant_fraglen_sd": 30,
+    "skip_alignment": true
+}
